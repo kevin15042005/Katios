@@ -1,45 +1,33 @@
-import React from "react";
 import axios from "axios";
 
 export default function EliminarCarta({ id, obtenerCartas }) {
 
-  const eliminarCarta = async () => {
-
-    const confirmar = window.confirm(
-      `¿Desea eliminar la carta con ID ${id}?`
-    );
-
+  const eliminar = async () => {
+    const confirmar = window.confirm("¿Seguro que quieres eliminar esta carta?");
     if (!confirmar) return;
 
     try {
-
-      await axios.delete(
+      const res = await axios.delete(
         `${import.meta.env.VITE_API_URL}/cartas/eliminar_Carta/${id}`
       );
 
-      alert("Carta eliminada correctamente");
+      console.log("Eliminado:", res.data);
 
+      // 🔥 refrescar lista
       await obtenerCartas();
 
     } catch (error) {
-
-      alert(
-        error.response?.data?.message ||
-        "Error al eliminar carta"
-      );
-
+      console.log("Error eliminando:", error);
+      alert("No se pudo eliminar la carta");
     }
   };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={eliminarCarta}
-        className="bg-red-600 hover:bg-red-700 transition-all duration-300 px-4 py-2 rounded-xl text-white font-bold"
-      >
-        🗑 Eliminar
-      </button>
-    </>
+    <button
+      onClick={eliminar}
+      className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-xl text-white font-bold"
+    >
+      🗑 Eliminar
+    </button>
   );
 }

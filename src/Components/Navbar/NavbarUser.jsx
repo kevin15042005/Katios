@@ -11,7 +11,7 @@ export default function NavbarUser() {
   const navigate = useNavigate();
 
   const navLinks = [
-    { name: "Tabla Usuario", path: "/admin/usuarios" },
+    { name: "Tabla Usuario", path: "/admin/tablaUsuario" },
     { name: "Carta", path: "/admin/cartas" },
   ];
 

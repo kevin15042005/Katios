@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 /* Reset total para que los navegadores no metan espacios */
 * {
   margin: 20;

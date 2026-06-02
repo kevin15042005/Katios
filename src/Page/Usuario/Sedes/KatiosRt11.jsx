@@ -1,0 +1,92 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import HTMLFlipBook from "react-pageflip";
+import Parilla from "@/assets/KatiosRt11.png";
+
+export default function KatiosRt11() {
+  const [cartas, setCartas] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const obtenerCartas = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas_Punto/2`,
+      );
+
+      setCartas(res.data || []);
+    } catch (err) {
+      console.log(err);
+      setCartas([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    obtenerCartas();
+  }, []);
+
+  return (
+    <section className="  ">
+      <div className="m-w-full  h-160 overflow-hidden">
+        <div
+          className="absolute inset-x-0 top-0 
+          "
+        >
+          <img
+            src={Parilla}
+            alt=""
+            className="object-cover  opacity-60 w-full h-160 "
+          />
+
+          <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-[#360707]"></div>
+        </div>
+        <div className="relative z-10  pt-50 text-center text-white w-full">
+          <h1 className="text-5xl">KatiosRt11</h1>
+          <h2 className="text-3xl  mb-2"></h2>
+          <span className="text-lg  flex flex-col mt-4">
+            <strong>LOS SABORES DE MI TIERRA </strong> Los mejores platos
+            típicos de nuestra Colombia
+          </span>
+        </div>
+      </div>
+
+      {loading ? (
+        <p className="text-white text-center">Cargando...</p>
+      ) : (
+        <div className="flex flex-col items-center my-10">
+          {cartas.map((carta) => (
+            <HTMLFlipBook
+              key={carta.id}
+              width={450}
+              height={650}
+              size="stretch"
+              showCover={true}
+              minWidth={250}
+              maxWidth={500}
+              minHeight={650}
+              maxHeight={650}
+              usePortrait={true}
+              startPage={0}
+              mobileScrollSupport={true}
+              className="mx-auto"
+            >
+              {carta.pages?.map((img, i) => (
+                <div key={i} className="">
+                  <img
+                    src={`${import.meta.env.VITE_API_URL}${img}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </div>
+              ))}
+            </HTMLFlipBook>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}

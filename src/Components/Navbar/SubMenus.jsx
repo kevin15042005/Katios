@@ -1,71 +1,94 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+
 export default function SubMenus() {
   const [subMenuSedes, setSubMenuSede] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const menuRef = useRef(null);
+
+  const sedes = [
+    { id: 1, nombre: "KatiosIntenacional", ruta: "/KatiosInter", info: "Hola" },
+    { id: 2, nombre: "KatiosRt11", ruta: "/KatiosRt11", info: "Hola" },
+    { id: 3, nombre: "KatiosPuente", ruta: "/KatiosPuente", info: "Hola" },
+    {
+      id: 4,
+      nombre: "KatiosPlazoleta",
+      ruta: "/KatiosPlazoleta",
+      info: "Hola",
+    },
+    { id: 5, nombre: "KatiosToGo", ruta: "/KatiosToGo", info: "Hola" },
+    {
+      id: 6,
+      nombre: "KatiosFuncionario",
+      ruta: "/KatiosFuncionario",
+      info: "Hola",
+    },
+  ];
 
   useEffect(() => {
     const checkScreen = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     checkScreen();
-
     window.addEventListener("resize", checkScreen);
-
-    return () => {
-      window.removeEventListener("resize", checkScreen);
-    };
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
+  // Cierra si haces clic fuera del componente
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setSubMenuSede(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Esta función asegura que el submenú se cierre SÍ O SÍ y suba la página
+  const handleSedeClick = () => {
+    setSubMenuSede(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <>
-      <div
-        className="relative"
-        onMouseEnter={() => !isMobile && setSubMenuSede(true)}
-        onMouseLeave={() => !isMobile && setSubMenuSede(false)}
-      >
-        <button onClick={() => isMobile && setSubMenuSede(!subMenuSedes)}>
-          {" "}
-          Sedes
-          <span
-            className={`text-xs transition-transform duration-300 ${subMenuSedes ? "rotate-180" : ""}`}
-          >
-            ▼
-          </span>
-        </button>
+    <div
+      ref={menuRef}
+      className="relative"
+      onMouseEnter={() => !isMobile && setSubMenuSede(true)}
+      onMouseLeave={() => !isMobile && setSubMenuSede(false)}
+    >
+      <button onClick={() => isMobile && setSubMenuSede(!subMenuSedes)}>
+        Sedes
+        <span
+          className={`inline-block text-xs transition-transform duration-300 ${
+            subMenuSedes ? "rotate-180" : ""
+          }`}
+        >
+          ▼
+        </span>
+      </button>
 
-        {subMenuSedes && (
-          <div
-            className={`
-    ${isMobile ? "relative mt-2" : "absolute top-full left-0 pt-4"}
-    w-56
-    z-50
-  `}
-          >
-            {" "}
-            <div className="bg-amber-800/30 border-amber-300 rounded-lg shadow-2xl py-6 overflow-hidden">
+      {subMenuSedes && (
+        <div
+          className={`${isMobile ? "relative mt-2" : "absolute top-full left-0 pt-4"} z-50`}
+        >
+          <div className="bg-amber-800/30 border border-amber-500/20 backdrop-blur-md rounded-lg shadow-2xl py-6 overflow-hidden">
+            {sedes.map((sede) => (
               <Link
-                to="/Katios"
-                className="block px-4 py-3 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500 "
+                key={sede.id}
+                to={sede.ruta}
+                onClick={handleSedeClick} // <-- Aquí se fuerza el cierre total
+                className="block px-4 py-2 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500 rounded-2xl"
               >
-                <span className="block font-bold">Katios</span>
-                <span className="text-xs text-white-500">
-                  Local 26 - Salidas Nacionales
-                </span>
+                <span className="block font-bold">{sede.nombre}</span>
+                <span className="text-xs text-gray-400 block">{sede.info}</span>
+                <div className="h-1 w-full bg-amber-500 mx-auto rounded-b-full"></div>
               </Link>
-
-              <Link
-                to="/KatiosInter"
-                className="block px-4 py-3 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500"
-              >
-                <span className="block font-bold">Sede Norte</span>
-                <span className="text-xs text-gray-500">Calle 140 # 11-45</span>
-              </Link>
-            </div>{" "}
+            ))}
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 }
