@@ -1,8 +1,6 @@
 @import "tailwindcss";
 /* Reset total para que los navegadores no metan espacios */
-* {
-  margin: 20;
-}
+
 
 html, body {
   width: 100%;
@@ -14,11 +12,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-#root {
-  width: 100%;
-}
 
-/* Evitar que el scroll horizontal rompa el diseño en móviles */
+
 body {
   overflow-x: hidden;
 }
