@@ -12,7 +12,9 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-
+#root {
+  width: 100%;
+}
 
 body {
   overflow-x: hidden;
