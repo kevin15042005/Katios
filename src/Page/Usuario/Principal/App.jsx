@@ -19,10 +19,10 @@ export default function App() {
 
           </div>
           <div className="relative z-10  pt-50 text-center text-white w-full">
-            <h1 className="text-4xl font-bold mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
               LOS SABORES DE MI TIERRA
             </h1>
-            <span className="text-lg">
+            <span className="text-2xl md:text-3xl m-2">
               Los mejores platos típicos de nuestra <strong>Colombia</strong>
             </span>
           </div>

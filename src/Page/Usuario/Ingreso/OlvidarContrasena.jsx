@@ -49,7 +49,7 @@ export default function OlvidarContrasena() {
   return (
     <>
       <section className="min-h-screen pt-40 bg-gray-500 pb-10">
-        <div className="max-w-3xl md:max-w-5xl mx-auto w-full">
+        <div className="max-w-3xl md:max-w-5xl mx-auto w-80">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-white mb-4">
               Recuperacion Contrasena

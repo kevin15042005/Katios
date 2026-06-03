@@ -45,9 +45,12 @@ export default function SubMenus() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Esta función asegura que el submenú se cierre SÍ O SÍ y suba la página
   const handleSedeClick = () => {
     setSubMenuSede(false);
+    
+    // Disparamos un evento global para avisarle a la Navbar que se cierre por completo
+    window.dispatchEvent(new Event("close-navbar"));
+    
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -59,7 +62,7 @@ export default function SubMenus() {
       onMouseLeave={() => !isMobile && setSubMenuSede(false)}
     >
       <button onClick={() => isMobile && setSubMenuSede(!subMenuSedes)}>
-        Sedes
+        Sedes{" "}
         <span
           className={`inline-block text-xs transition-transform duration-300 ${
             subMenuSedes ? "rotate-180" : ""
@@ -74,15 +77,15 @@ export default function SubMenus() {
           className={`${isMobile ? "relative mt-2" : "absolute top-full left-0 pt-4"} z-50`}
         >
           <div className="bg-amber-800/30 border border-amber-500/20 backdrop-blur-md rounded-lg shadow-2xl py-6 overflow-hidden">
-            {sedes.map((sede) => (
+            {sedes.map((combineSede) => (
               <Link
-                key={sede.id}
-                to={sede.ruta}
-                onClick={handleSedeClick} // <-- Aquí se fuerza el cierre total
+                key={combineSede.id}
+                to={combineSede.ruta}
+                onClick={handleSedeClick}
                 className="block px-4 py-2 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500 rounded-2xl"
               >
-                <span className="block font-bold">{sede.nombre}</span>
-                <span className="text-xs text-gray-400 block">{sede.info}</span>
+                <span className="block font-bold">{combineSede.nombre}</span>
+                <span className="text-xs text-gray-400 block">{combineSede.info}</span>
                 <div className="h-1 w-full bg-amber-500 mx-auto rounded-b-full"></div>
               </Link>
             ))}

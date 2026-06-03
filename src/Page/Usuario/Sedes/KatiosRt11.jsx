@@ -50,7 +50,6 @@ export default function KatiosRt11() {
           </span>
         </div>
       </div>
-
       {loading ? (
         <p className="text-white text-center">Cargando...</p>
       ) : (
@@ -87,6 +86,23 @@ export default function KatiosRt11() {
           ))}
         </div>
       )}
+      <div className="col-span-1 md:col-span-2 flex justify-center my-10">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4127120059!2d-74.14247893379317!3d4.698140596323711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9d0068579723%3A0xe544c51f087d302a!2sKatios!5e0!3m2!1ses-419!2sco!4v1780518481267!5m2!1ses-419!2sco"
+          style={{
+            width: "90%",
+            margin: "0",
+            maxWidth: "800px",
+            height: "450px",
+            maxHeight: "60vh",
+            border: "2px solid #ccc",
+            borderRadius: "12px",
+          }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>{" "}
     </section>
   );
 }
