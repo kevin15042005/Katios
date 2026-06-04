@@ -1,5 +1,5 @@
 import Navbar from "../Navbar/Navbar";
-import NavbarAdmin from "../Navbar/NavbarUser.jsx";
+import NavbarAdmin from "../Navbar/NavbarAdmin.jsx";
 import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer.jsx";
 import { useEffect, useState } from "react";

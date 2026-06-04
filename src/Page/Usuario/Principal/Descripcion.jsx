@@ -1,4 +1,4 @@
-import DescripcionLogo from "@/assets/DescripcionLogo.jpg";
+import DescripcionLogo from "../../../assets/Puente/KatiosPuente.png";
 export default function Descripcion() {
   return (
     <>

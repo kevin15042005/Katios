@@ -1,6 +1,6 @@
-import Parilla from "@/assets/KatiosToGo.png";
-import Descripcion from "./Descripcion";
-import Platos from "./Platos"
+import Parilla from "../../../assets/Funcionarios/Plazoleta2.png";
+import Descripcion from "./Descripcion.jsx";
+import Platos from "./Platos.jsx";
 export default function App() {
   return (
     <>
@@ -15,8 +15,7 @@ export default function App() {
               alt=""
               className="object-cover  opacity-60 w-full h-140 "
             />
-                      <div className="absolute inset-0 bg-linear-to-b from-transparent from-95% to-[#ccba7c]"></div>
-
+            <div className="absolute inset-0 bg-linear-to-b from-transparent from-95% to-[#ccba7c]"></div>
           </div>
           <div className="relative z-10  pt-50 text-center text-white w-full">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">
@@ -31,10 +30,9 @@ export default function App() {
           <Descripcion />
         </div>
         <div className="mb-20">
-          <Platos/>
+          <Platos />
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
     </>
   );

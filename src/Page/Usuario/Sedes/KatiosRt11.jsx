@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/KatiosRt11.png";
+import Parilla from "@/assets/Rt11/KatiosRt11.png";
 
 export default function KatiosRt11() {
   const [cartas, setCartas] = useState([]);
@@ -42,13 +42,16 @@ export default function KatiosRt11() {
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-[#360707]"></div>
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              LOS SABORES DE MI TIERRA
-            </h1>
-            <span className="text-2xl md:text-3xl m-2">
-              Los mejores platos típicos de nuestra <strong>Colombia</strong>
-            </span>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
+            Katios Rt11
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            LOS SABORES DE MI TIERRA
+          </h2>
+          <span className="text-2xl md:text-3xl m-2">
+            Los mejores platos típicos de nuestra <strong>Colombia</strong>
+          </span>
+        </div>
       </div>
       {loading ? (
         <p className="text-white text-center">Cargando...</p>

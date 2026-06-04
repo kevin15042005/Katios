@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/KatiosInter.png";
+import Parilla from "@/assets/Inter/KatiosInter.png";
 
 export default function KatiosInter() {
   const [cartas, setCartas] = useState([]);
@@ -43,14 +43,17 @@ export default function KatiosInter() {
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
-         <div className="relative z-10  pt-50 text-center text-white w-full">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              LOS SABORES DE MI TIERRA
-            </h1>
-            <span className="text-2xl md:text-3xl m-2">
-              Los mejores platos típicos de nuestra <strong>Colombia</strong>
-            </span>
-          </div>
+        <div className="relative z-10  pt-50 text-center text-white w-full">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
+            Katios Inter
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            LOS SABORES DE MI TIERRA
+          </h2>
+          <span className="text-2xl md:text-3xl m-2">
+            Los mejores platos típicos de nuestra <strong>Colombia</strong>
+          </span>
+        </div>
       </div>
       {loading ? (
         <p className="text-white text-center">Cargando...</p>
@@ -93,13 +96,13 @@ export default function KatiosInter() {
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"
           style={{
-            width: '90%',
-            margin:'0',
-            maxWidth:'800px',
-            height:'450px',
-            maxHeight:'60vh',
-            border: '2px solid #ccc',
-            borderRadius: '12px'
+            width: "90%",
+            margin: "0",
+            maxWidth: "800px",
+            height: "450px",
+            maxHeight: "60vh",
+            border: "2px solid #ccc",
+            borderRadius: "12px",
           }}
           allowFullScreen=""
           loading="lazy"

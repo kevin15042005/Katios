@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/KatiosPuente.png";
+import Parilla from "@/assets/Puente/KatiosPuente.png";
+
 
 export default function KatiosPuente() {
   const [cartas, setCartas] = useState([]);
@@ -40,14 +41,17 @@ export default function KatiosPuente() {
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-60% to-[#360707]"></div>
         </div>
-     <div className="relative z-10  pt-50 text-center text-white w-full">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              LOS SABORES DE MI TIERRA
-            </h1>
-            <span className="text-2xl md:text-3xl m-2">
-              Los mejores platos típicos de nuestra <strong>Colombia</strong>
-            </span>
-          </div>
+        <div className="relative z-10  pt-50 text-center text-white w-full">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
+            Katios Puente
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            LOS SABORES DE MI TIERRA
+          </h2>
+          <span className="text-2xl md:text-3xl m-2">
+            Los mejores platos típicos de nuestra <strong>Colombia</strong>
+          </span>
+        </div>
       </div>
       {loading ? (
         <p className="text-white text-center">Cargando...</p>

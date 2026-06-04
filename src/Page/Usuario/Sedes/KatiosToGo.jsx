@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/KatiosToGo.png";
-
+import Parilla from "@/assets/ToGo/KatiosToGo.png";
 
 export default function KatiosToGo() {
   const [cartas, setCartas] = useState([]);
@@ -28,48 +27,50 @@ export default function KatiosToGo() {
   }, []);
 
   return (
-   <section className="min-h-screen bg-[#360707] ">
-       <div className="relative  m-w-full  h-160 overflow-hidden">
-          <div
-            className="absolute inset-x-0 top-0 
+    <section className="min-h-screen bg-[#360707] ">
+      <div className="relative  m-w-full  h-160 overflow-hidden">
+        <div
+          className="absolute inset-x-0 top-0 
           "
-          >
-            <img
-              src={Parilla}
-              alt=""
-              className="object-cover  opacity-60 w-full h-150 "
-            />
-                      <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
-
-          </div>
-       <div className="relative z-10  pt-50 text-center text-white w-full">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              LOS SABORES DE MI TIERRA
-            </h1>
-            <span className="text-2xl md:text-3xl m-2">
-              Los mejores platos típicos de nuestra <strong>Colombia</strong>
-            </span>
-          </div>
+        >
+          <img
+            src={Parilla}
+            alt=""
+            className="object-cover  opacity-60 w-full h-150 "
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
+        <div className="relative z-10  pt-50 text-center text-white w-full">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
+            Katios To Go
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            LOS SABORES DE MI TIERRA
+          </h2>
+          <span className="text-2xl md:text-3xl m-2">
+            Los mejores platos típicos de nuestra <strong>Colombia</strong>
+          </span>
+        </div>
+      </div>
       {loading ? (
         <p className="text-white text-center">Cargando...</p>
       ) : (
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
           {" "}
           {cartas.map((carta) => (
-           <HTMLFlipBook
+            <HTMLFlipBook
               key={carta.id}
               width={450}
               height={650}
               size="stretch"
               showCover={true}
-              minWidth={250} 
+              minWidth={250}
               maxWidth={500}
               minHeight={650}
               maxHeight={650}
               usePortrait={true}
               startPage={0}
-              mobileScrollSupport={true} 
+              mobileScrollSupport={true}
               className="mx-auto"
             >
               {carta.pages?.map((img, i) => (
