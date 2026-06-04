@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/Puente/KatiosPuente.png";
+import Parilla from "@/assets/Puente/KatiosPuente.webp";
 
 
 export default function KatiosPuente() {

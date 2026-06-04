@@ -1,4 +1,4 @@
-import ImagenInterGibhi from "../../../assets/Inter/KatiosInter.png";
+import ImagenInterGibhi from "../../../assets/Inter/KatiosInter.webp";
 import Inter1 from "../../../assets/Inter/Inter1.webp";
 import Inter2 from "../../../assets/Inter/Inter2.webp";
 import Inter3 from "../../../assets/Inter/Inter3.webp";

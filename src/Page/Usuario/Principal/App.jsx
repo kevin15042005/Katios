@@ -1,4 +1,4 @@
-import Parilla from "../../../assets/Funcionarios/Plazoleta2.png";
+import Parilla from "../../../assets/Funcionarios/Plazoleta2.webp";
 import Descripcion from "./Descripcion.jsx";
 import Platos from "./Platos.jsx";
 export default function App() {

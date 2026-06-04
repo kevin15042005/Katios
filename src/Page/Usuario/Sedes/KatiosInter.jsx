@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/Inter/KatiosInter.png";
+import Parilla from "@/assets/Inter/KatiosInter.webp";
 
 export default function KatiosInter() {
   const [cartas, setCartas] = useState([]);

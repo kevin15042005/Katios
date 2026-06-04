@@ -1,4 +1,4 @@
-import DescripcionLogo from "../../../assets/Puente/KatiosPuente.png";
+import DescripcionLogo from "../../../assets/Puente/KatiosPuente.webp";
 export default function Descripcion() {
   return (
     <>
