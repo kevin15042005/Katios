@@ -42,13 +42,13 @@ export default function KatiosRt11() {
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-[#360707]"></div>
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full">
-          <h1 className="text-5xl">KatiosRt11</h1>
-          <h2 className="text-3xl  mb-2"></h2>
-          <span className="text-lg  flex flex-col mt-4">
-            <strong>LOS SABORES DE MI TIERRA </strong> Los mejores platos
-            típicos de nuestra Colombia
-          </span>
-        </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+              LOS SABORES DE MI TIERRA
+            </h1>
+            <span className="text-2xl md:text-3xl m-2">
+              Los mejores platos típicos de nuestra <strong>Colombia</strong>
+            </span>
+          </div>
       </div>
       {loading ? (
         <p className="text-white text-center">Cargando...</p>
