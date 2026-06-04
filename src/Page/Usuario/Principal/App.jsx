@@ -1,6 +1,8 @@
 import Parilla from "../../../assets/Funcionarios/Plazoleta2.webp";
 import Descripcion from "./Descripcion.jsx";
 import Platos from "./Platos.jsx";
+import RotacionAnimacion from "../../../Components/Animacion/RotacionAnimacion";
+
 export default function App() {
   return (
     <>
@@ -22,7 +24,14 @@ export default function App() {
               LOS SABORES DE MI TIERRA
             </h1>
             <span className="text-2xl md:text-3xl m-2">
-              Los mejores platos típicos de nuestra <strong>Colombia</strong>
+              Los mejores platos típicos de nuestra
+              <div className=" flex mt-10 justify-center items-center">
+                <RotacionAnimacion
+                  leftTexts={["Parrilla", "Colombiana"]}
+                  rightTexts={["Holi", "Especial", "Unico"]}
+                  interval={2500}
+                />
+              </div>
             </span>
           </div>
         </div>
