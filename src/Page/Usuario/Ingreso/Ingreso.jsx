@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import QR from "../../../Components/QR/QR"
 export default function Ingreso() {
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
   //Datos ingreso backend
@@ -108,6 +108,7 @@ export default function Ingreso() {
                 <button className="" onClick={handleLogin}>Ingresar</button>
               </div>
             </div>
+          
           </div>
         </div>
       </section>
