@@ -63,21 +63,22 @@ export default function Ingreso() {
     <>
       <section className="min-h-screen pt-40 bg-gray-500 p-20">
         <div className="max-w-3xl md:max-w-5xl mx-auto w-full">
-          <div className="text-center mb-16  ">
+          <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-white mb-4">
               Ingreso Sistema
             </h1>
-            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full   "></div>
+            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
           </div>
-          <div className="flex flex-col items-center justify-center ">
-            <div className=" bg-gray-200/20 py-20 px-14  rounded-3xl ">
+          <div className="flex flex-col items-center justify-center">
+            <div className="bg-gray-200/20 py-20 px-14 rounded-3xl">
+              
               <form
                 onSubmit={handleLogin}
                 action=""
-                className="flex flex-col my-2 gap-7 "
+                className="flex flex-col my-2 gap-7"
               >
                 <fieldset className="flex flex-col text-center">
-                  <label htmlFor="" className="font-bold text-3xl  mb-2">
+                  <label htmlFor="" className="font-bold text-3xl mb-2">
                     Nombre
                   </label>
                   <input
@@ -88,17 +89,18 @@ export default function Ingreso() {
                     className="border-2 bg-yellow-400 border-amber-50 rounded-2xl py-2 px-4"
                   />
                 </fieldset>
+
                 <fieldset className="flex flex-col text-center">
                   <label htmlFor="" className="font-bold text-3xl mb-2">
                     Contrasena
                   </label>
-                  <div className="relative flex items-center  bg-blue-700 border-2 border-amber-50 rounded-2xl py-2 px-4">
+                  <div className="relative flex items-center bg-blue-700 border-2 border-amber-50 rounded-2xl py-2 px-4">
                     <input
                       type={mostrarContrasena ? "text" : "password"}
                       placeholder="Contrasena"
                       value={contrasena}
                       onChange={(e) => setContrasena(e.target.value)}
-                      className=" w-full outline-none "
+                      className="w-full outline-none"
                     />
                     <button
                       type="button"
@@ -108,17 +110,22 @@ export default function Ingreso() {
                     </button>
                   </div>
                 </fieldset>
+
+                {/* El link dentro del formulario */}
+                <div className="flex gap-4 font-bold text mt-6 hover:text-blue-300 transition-all duration-400">
+                  <Link to={"/OlvidarContrasena"} onClick={handleRedirect}>
+                    Olvidaste tu Contrasena
+                  </Link>
+                </div>
+
+                {/* El botón con su estilo rojo espectacular, DENTRO del formulario */}
+                <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6 hover:bg-red-600 transform-3d duration-300">
+                  <button type="submit" className="w-full h-full text-white">
+                    Ingresar
+                  </button>
+                </div>
               </form>
-              <div className="flex gap-4  font-bold text mt-6 hover:text-blue-300 transition-all duration-400">
-                <Link to={"/OlvidarContrasena"} onClick={handleRedirect}>
-                  Olvidaste tu Contrasena
-                </Link>
-              </div>
-              <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6  hover:bg-red-600 transform-3d duration-300">
-                <button type="submit" className="">
-                  Ingresar
-                </button>{" "}
-              </div>
+
             </div>
           </div>
         </div>
