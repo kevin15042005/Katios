@@ -68,7 +68,6 @@ export default function CrearCarta({ obtenerCartas }) {
         />
       </label>
 
-      {/* Botón de envío */}
       <button
         type="button"
         onClick={crearCarta}
