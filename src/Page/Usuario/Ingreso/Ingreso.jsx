@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import QR from "../../../Components/QR/QR"
+import QR from "../../../Components/QR/QR";
 export default function Ingreso() {
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
   //Datos ingreso backend
@@ -16,8 +16,7 @@ export default function Ingreso() {
   //Conexion a backend ingreso
 
   const handleLogin = async (e) => {
-
-if (e) e.preventDefault(); 
+    if (e) e.preventDefault();
 
     if (!nombre || !contrasena) {
       alert("Ingreso los campos necesarios");
@@ -72,9 +71,15 @@ if (e) e.preventDefault();
           </div>
           <div className="flex flex-col items-center justify-center ">
             <div className=" bg-gray-200/20 py-20 px-14  rounded-3xl ">
-              <form onSubmit={handleLogin}  action="" className="flex flex-col my-2 gap-7 ">
+              <form
+                onSubmit={handleLogin}
+                action=""
+                className="flex flex-col my-2 gap-7 "
+              >
                 <fieldset className="flex flex-col text-center">
-                  <label htmlFor="" className="font-bold text-3xl  mb-2">Nombre</label>
+                  <label htmlFor="" className="font-bold text-3xl  mb-2">
+                    Nombre
+                  </label>
                   <input
                     type="text"
                     placeholder="Nombre"
@@ -84,7 +89,9 @@ if (e) e.preventDefault();
                   />
                 </fieldset>
                 <fieldset className="flex flex-col text-center">
-                  <label htmlFor="" className="font-bold text-3xl mb-2">Contrasena</label>
+                  <label htmlFor="" className="font-bold text-3xl mb-2">
+                    Contrasena
+                  </label>
                   <div className="relative flex items-center  bg-blue-700 border-2 border-amber-50 rounded-2xl py-2 px-4">
                     <input
                       type={mostrarContrasena ? "text" : "password"}
@@ -108,10 +115,11 @@ if (e) e.preventDefault();
                 </Link>
               </div>
               <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6  hover:bg-red-600 transform-3d duration-300">
-                <button className="" onClick={handleLogin}>Ingresar</button>
+                <button type="submit" className="">
+                  Ingresar
+                </button>{" "}
               </div>
             </div>
-          
           </div>
         </div>
       </section>
