@@ -2,19 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
+
 export default function OlvidarContrasena() {
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
 
-  //Datos de Backend
-
+  // Datos de Backend
   const [nombre, setNombre] = useState("");
   const [pin, setPin] = useState("");
   const [nuevacontrasena, setNuevaContrasena] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const actualizarUsuario = async () => {
-    if (!pin || !nuevacontrasena) {
-      alert("Ingrese la contrasena nueva");
+  const actualizarUsuario = async (e) => {
+    // 1. Evitamos que el formulario recargue la página automáticamente
+    if (e) e.preventDefault();
+
+    // 2. Validamos que todos los campos requeridos estén llenos
+    if (!nombre || !pin || !nuevacontrasena) {
+      alert("Por favor, ingrese todos los campos necesarios");
       return;
     }
 
@@ -31,7 +35,7 @@ export default function OlvidarContrasena() {
       setNombre("");
       setPin("");
       setNuevaContrasena("");
-      navigate("/Ingreso")
+      navigate("/Ingreso");
       
     } catch (error) {
       alert(error.response?.data?.message || "Error al actualizar");
@@ -46,6 +50,7 @@ export default function OlvidarContrasena() {
       });
     }, 100);
   };
+
   return (
     <>
       <section className="min-h-screen pt-40 bg-gray-500 pb-10">
@@ -54,70 +59,80 @@ export default function OlvidarContrasena() {
             <h1 className="text-5xl font-bold text-white mb-4">
               Recuperacion Contrasena
             </h1>
-            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full   "></div>
-          </div>{" "}
+            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
+          </div>
+
           <div className="flex flex-col items-center justify-center">
             <div className="bg-gray-200/20 py-20 px-18 rounded-3xl">
-              <form
-                action="
-                "
-              >
-                <fieldset className="flex flex-col text-center mb-4 ">
-                  <label htmlFor="" className="font-bold text-3xl  mb-2">
-                    Nombre{" "}
+              
+              {/* Asignamos la función al onSubmit del formulario */}
+              <form onSubmit={actualizarUsuario} className="w-full">
+                <fieldset className="flex flex-col text-center mb-4">
+                  <label htmlFor="" className="font-bold text-3xl mb-2">
+                    Nombre
                   </label>
                   <input
                     type="text"
-                    placeholder="Nombre "
+                    placeholder="Nombre"
                     required
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
-                    className="border-2 bg-yellow-400 border-amber-50 rounded-2xl py-2 px-4"
+                    className="border-2 bg-yellow-400 border-amber-50 rounded-2xl py-2 px-4 text-black"
                   />
                 </fieldset>
+
                 <fieldset className="flex flex-col text-center mb-4">
-                  <label htmlFor="" className="font-bold text-3xl  mb-2">
+                  <label htmlFor="" className="font-bold text-3xl mb-2">
                     Pin
                   </label>
                   <input
                     type="number"
-                    placeholder="Pin "
+                    placeholder="Pin"
                     required
                     value={pin}
-                    onChange={(e)=>setPin(e.target.value)}
-                    className="border-2 bg-blue-600 border-amber-50 rounded-2xl py-2 px-4"
+                    onChange={(e) => setPin(e.target.value)}
+                    className="border-2 bg-blue-600 border-amber-50 rounded-2xl py-2 px-4 text-white"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col text-center mb-4 ">
-                  <label htmlFor="" className="font-bold text-3xl  mb-2">
+
+                <fieldset className="flex flex-col text-center mb-4">
+                  <label htmlFor="" className="font-bold text-3xl mb-2">
                     Contrasena Nueva
                   </label>
-                  <div className=" bg-red-600 relative flex items-center border-2 border-amber-50 rounded-2xl py-2 px-4">
+                  <div className="bg-red-600 relative flex items-center border-2 border-amber-50 rounded-2xl py-2 px-4">
                     <input
                       type={mostrarContrasena ? "text" : "password"}
-                      placeholder="Contraseña "
+                      placeholder="Contraseña"
                       required
                       value={nuevacontrasena}
-                      onChange={(e)=>setNuevaContrasena(e.target.value)}
-                      className="bg-transparent w-full outline-none"
+                      onChange={(e) => setNuevaContrasena(e.target.value)}
+                      className="bg-transparent w-full outline-none text-white placeholder-gray-200"
                     />
                     <button
                       type="button"
                       onClick={() => setMostrarContrasena(!mostrarContrasena)}
+                      className="text-white"
                     >
                       <span>{mostrarContrasena ? <EyeOff /> : <Eye />}</span>
                     </button>
                   </div>
                 </fieldset>
+
+                {/* El enlace ahora está correctamente protegido dentro del form */}
+                <div className="flex gap-4 font-bold text mt-6 hover:text-blue-300 transition-all duration-400">
+                  <Link to={"/Ingreso"} onClick={handleRedirect}>
+                    Volver
+                  </Link>
+                </div>
+
+                {/* El botón cambió a type="submit" y está dentro de su contenedor estético */}
+                <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6 hover:bg-red-600 transform-3d duration-300">
+                  <button type="submit" className="w-full h-full text-white">
+                    Actualizar
+                  </button>
+                </div>
               </form>
-              <div className="flex gap-4  font-bold text mt-6 hover:text-blue-300 transition-all duration-400">
-                <Link to={"/Ingreso"} onClick={handleRedirect}>
-                  Volver
-                </Link>
-              </div>
-              <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6  hover:bg-red-600 transform-3d duration-300">
-                <button type="button" onClick={actualizarUsuario}>Actualizar</button>
-              </div>
+
             </div>
           </div>
         </div>
