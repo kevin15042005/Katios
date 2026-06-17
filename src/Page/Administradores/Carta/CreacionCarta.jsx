@@ -46,7 +46,6 @@ export default function CrearCarta({ obtenerCartas }) {
   return (
     <div className="bg-[#292525] p-6 rounded-2xl flex flex-col md:flex-row gap-4 items-center">
       
-      {/* Input de ID Punto */}
       <input
         type="number"
         placeholder="ID Punto"
@@ -55,10 +54,8 @@ export default function CrearCarta({ obtenerCartas }) {
         className="px-4 py-3 rounded-xl text-white bg-[#1f1f1f] border border-amber-500 outline-none w-full md:w-auto"
       />
 
-      {/* Label estilizado que oculta el input nativo feo */}
       <label className="flex items-center justify-center gap-2 bg-[#3a3535] hover:bg-[#4a4545] border border-dashed border-gray-500 text-white font-medium px-4 py-3 rounded-xl cursor-pointer shadow-md transition-all duration-300 w-full text-center project-upload-label">
         
-        {/* Si hay un PDF seleccionado muestra el nombre, si no, pide elegir uno */}
         <span className="truncate max-w-xs">
           {pdf ? `📄 ${pdf.name}` : "Seleccionar PDF"}
         </span>
@@ -66,9 +63,8 @@ export default function CrearCarta({ obtenerCartas }) {
         <input
           type="file"
           accept=".pdf"
-          // Usamos el operador opcional por si el usuario cancela la selección
           onChange={(e) => setPdf(e.target.files?.[0] || null)}
-          className="hidden" {/* 👈 Ocultamos el diseño nativo del navegador */}
+          className="hidden" 
         />
       </label>
 
