@@ -15,7 +15,10 @@ export default function Ingreso() {
 
   //Conexion a backend ingreso
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+
+if (e) e.preventDefault(); 
+
     if (!nombre || !contrasena) {
       alert("Ingreso los campos necesarios");
       return;
@@ -69,7 +72,7 @@ export default function Ingreso() {
           </div>
           <div className="flex flex-col items-center justify-center ">
             <div className=" bg-gray-200/20 py-20 px-14  rounded-3xl ">
-              <form action="" className="flex flex-col my-2 gap-7 ">
+              <form onSubmit={handleLogin}  action="" className="flex flex-col my-2 gap-7 ">
                 <fieldset className="flex flex-col text-center">
                   <label htmlFor="" className="font-bold text-3xl  mb-2">Nombre</label>
                   <input
