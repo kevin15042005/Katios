@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/Rt11/KatiosRt11.webp";
+import Parilla from "@/assets/Inter/KatiosInter.webp";
 
-export default function KatiosRt11() {
+export default function KatiosInter() {
   const [cartas, setCartas] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const obtenerCartas = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas_Punto/2`,
+        `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas_Punto/2`
       );
-
       setCartas(res.data || []);
     } catch (err) {
       console.log(err);
@@ -27,23 +26,20 @@ export default function KatiosRt11() {
   }, []);
 
   return (
-    <section className="  ">
-      <div className="m-w-full  h-160 overflow-hidden">
-        <div
-          className="absolute inset-x-0 top-0 
-          "
-        >
+    <section className="bg-[#360707]">
+      {/* Encabezado con altura ajustada a 160 como el primer ejemplo */}
+      <div className="m-w-full h-160 overflow-hidden relative">
+        <div className="absolute inset-x-0 top-0">
           <img
             src={Parilla}
             alt=""
-            className="object-cover  opacity-60 w-full h-160 "
+            className="object-cover opacity-60 w-full h-160"
           />
-
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-[#360707]"></div>
         </div>
-        <div className="relative z-10  pt-50 text-center text-white w-full">
+        <div className="relative z-10 pt-50 text-center text-white w-full">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
-            Katios Rt11
+            Katios Inter
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
             LOS SABORES DE MI TIERRA
@@ -53,8 +49,10 @@ export default function KatiosRt11() {
           </span>
         </div>
       </div>
+
+      {/* Contenedor de cartas con estilo optimizado */}
       {loading ? (
-        <p className="text-white text-center">Cargando...</p>
+        <p className="text-white text-center my-10">Cargando...</p>
       ) : (
         <div className="flex flex-col items-center my-10">
           {cartas.map((carta) => (
@@ -74,7 +72,7 @@ export default function KatiosRt11() {
               className="mx-auto"
             >
               {carta.pages?.map((img, i) => (
-                <div key={i} className="">
+                <div key={i}>
                   <img
                     src={`${import.meta.env.VITE_API_URL}${img}`}
                     style={{
@@ -82,6 +80,7 @@ export default function KatiosRt11() {
                       height: "100%",
                       objectFit: "contain",
                     }}
+                    alt={`Página ${i + 1}`}
                   />
                 </div>
               ))}
@@ -89,9 +88,11 @@ export default function KatiosRt11() {
           ))}
         </div>
       )}
+
+      {/* Mapa */}
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4127120059!2d-74.14247893379317!3d4.698140596323711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9d0068579723%3A0xe544c51f087d302a!2sKatios!5e0!3m2!1ses-419!2sco!4v1780518481267!5m2!1ses-419!2sco"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"
           style={{
             width: "90%",
             margin: "0",
@@ -101,11 +102,11 @@ export default function KatiosRt11() {
             border: "2px solid #ccc",
             borderRadius: "12px",
           }}
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>{" "}
+      </div>
     </section>
   );
 }
