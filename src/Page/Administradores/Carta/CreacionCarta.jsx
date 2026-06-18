@@ -19,7 +19,7 @@ export default function CrearCarta({ obtenerCartas }) {
       formData.append("pdf", pdf);
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/cartas/crear_Cartas`,
+        `${import.meta.env.VITE_API_URL}/cartas/crear_cartas`,
         formData,
         {
           headers: {
