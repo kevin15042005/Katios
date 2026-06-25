@@ -54,7 +54,22 @@ export default function KatiosToGo() {
         </div>
       </div>
       {loading ? (
-        <p className="btn-cargar">Cargando...</p>
+        <div
+          className="relative overflow-hidden [transform:translateZ(0)] grid place-items-center h-16 px-8 border-0 rounded-xl font-['Poppins'] text-lg text-white cursor-wait bg-[#e28722]
+  before:content-[''] before:absolute before:z-1 before:top-0 before:left-0 before:w-[200%] before:h-full
+  before:[background:repeating-linear-gradient(-45deg,#fda144,#fda144_20px,#e28722_20px,#e28722_40px)]
+  before:animate-[spin_1s_linear_infinite] before:[animation-name:loading-slide]"
+        >
+          <span className="relative z-2 font-semibold">Cargando...</span>
+
+          {/* Inyectamos el keyframe rápido solo para este componente */}
+          <style>{`
+    @keyframes loading-slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-40px); }
+    }
+  `}</style>
+        </div>
       ) : (
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
           {" "}
