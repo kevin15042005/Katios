@@ -6,6 +6,8 @@ import Parilla from "../../../assets/Logo.png";
 export default function KatiosFuncionario() {
   const [cartas, setCartas] = useState([]);
   const [loading, setLoading] = useState(true);
+    const [timestamp] = useState(new Date().getTime());
+
 
   const obtenerCartas = async () => {
     try {
@@ -79,7 +81,7 @@ export default function KatiosFuncionario() {
               {carta.pages?.map((img, i) => (
                 <div key={i}>
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${img}`}
+                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamp}`}
                     style={{
                       width: "100%",
                       height: "100%",

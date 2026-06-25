@@ -28,6 +28,7 @@ export default function Cartas() {
       setCargando(false); // Apagamos el estado de carga pase lo que pase
     }
   };
+  console.log("Cartas cargadas", cartas);
 
   useEffect(() => {
     obtenerCartas();

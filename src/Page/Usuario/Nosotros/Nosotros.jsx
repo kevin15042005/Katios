@@ -7,7 +7,7 @@ export default function Nosotros() {
         
         {/* Título Principal: Centrado y con estilo */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-white mb-4  ">
             Nosotros
           </h1>
           <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
