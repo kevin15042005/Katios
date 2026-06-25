@@ -91,7 +91,7 @@ export default function KatiosToGo() {
               {carta.pages?.map((img, i) => (
                 <div key={i}>
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestampzs}`}
+                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamps}`}
                     style={{
                       width: "100%",
                       height: "100%",
