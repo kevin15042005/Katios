@@ -54,7 +54,7 @@ export default function KatiosToGo() {
         </div>
       </div>
       {loading ? (
-        <p className="text-white text-center">Cargando...</p>
+        <p className="btn-cargar">Cargando...</p>
       ) : (
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
           {" "}
