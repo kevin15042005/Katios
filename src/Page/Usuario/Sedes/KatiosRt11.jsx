@@ -58,7 +58,7 @@ export default function KatiosInter() {
         <div className="flex flex-col items-center my-10">
           {cartas.map((carta) => (
             <HTMLFlipBook
-              key={carta.id}
+              key={`${carta.id}-${timestamp}`}
               width={450}
               height={650}
               size="stretch"

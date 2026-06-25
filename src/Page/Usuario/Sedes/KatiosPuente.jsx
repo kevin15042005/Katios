@@ -62,7 +62,7 @@ export default function KatiosPuente() {
           {" "}
           {cartas.map((carta) => (
             <HTMLFlipBook
-              key={carta.id}
+              key={`${carta.id}-${timestamp}`}
               width={450}
               height={650}
               size="stretch"
