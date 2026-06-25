@@ -27,18 +27,26 @@ export default function KatiosInter() {
   }, []);
 
   return (
-    <section className="bg-[#360707]">
-      {/* Encabezado con altura ajustada a 160 como el primer ejemplo */}
-      <div className="m-w-full h-160 overflow-hidden relative">
-        <div className="absolute inset-x-0 top-0">
+    
+
+
+ <section className="min-h-screen bg-[#360707] ">
+      <div className="relative  m-w-full  h-200 overflow-hidden">
+        <div
+          className="absolute inset-x-0 top-0 
+          "
+        >
           <img
             src={Parilla}
             alt=""
-            className="object-cover opacity-60 w-full h-160"
+            className="w-full h-200 object-cover opacity-60"
+            style={{
+              objectPosition: "center center",
+            }}
           />
-          <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-[#360707]"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
-        <div className="relative z-10 pt-50 text-center text-white w-full">
+        <div className="relative z-10  pt-50 text-center text-white w-full">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
             Katios Inter
           </h1>
@@ -50,8 +58,6 @@ export default function KatiosInter() {
           </span>
         </div>
       </div>
-
-      {/* Contenedor de cartas con estilo optimizado */}
       {loading ? (
         <div
           className="relative mx-auto w-max overflow-hidden [transform-translateZ(0)] grid place-items-center h-16 px-8 border-0 rounded-xl font-['Poppins'] text-lg text-white cursor-wait bg-[#e28722]
@@ -69,7 +75,8 @@ export default function KatiosInter() {
   `}</style>
         </div>
       ) : (
-        <div className="flex flex-col items-center my-10">
+        <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
+          {" "}
           {cartas.map((carta) => (
             <HTMLFlipBook
               key={`${carta.id}-${timestamp}`}
@@ -95,7 +102,6 @@ export default function KatiosInter() {
                       height: "100%",
                       objectFit: "contain",
                     }}
-                    alt={`Página ${i + 1}`}
                   />
                 </div>
               ))}
@@ -103,8 +109,6 @@ export default function KatiosInter() {
           ))}
         </div>
       )}
-
-      {/* Mapa */}
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"

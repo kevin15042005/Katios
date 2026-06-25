@@ -123,7 +123,7 @@ export default function KatiosInter() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>{" "}
+      </div>
     </section>
   );
 }
