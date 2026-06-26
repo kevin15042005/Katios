@@ -55,7 +55,7 @@ export default function KatiosInter() {
           <span className="text-2xl md:text-4xl m-2">
             Nos encontramos en el primer piso del Area Intenacional
           </span>
-            <spam className="text-2xl">
+            <spam className="text-[16px] md:text-2xl w-85 md:w-full">
               Revisa nuestro menu y sorprendete con nuestros platos
             </spam>
           </div>
