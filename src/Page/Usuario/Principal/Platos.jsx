@@ -72,7 +72,7 @@ export default function Platos() {
 
   return (
     <>
-      <div className=" flex  justify-center items-center text-center ">
+      <div className=" flex  justify-center items-center text-center">
         <ul className="grid grid-cols-1 md:grid-cols-2 ">
           {Informacion.map((info, index) => (
             <Tarjeta

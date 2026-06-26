@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
 /* Reset total para que los navegadores no metan espacios */
 
+@theme{
+  --font-bebas-neue: Bebas Neue,"sans-serif";
+  --font-roboto-regular:Roboto,"sans-serif";
+}
 
 html, body {
   width: 100%;

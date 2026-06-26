@@ -28,32 +28,34 @@ export default function KatiosInter() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-[#360707] ">
-      <div className="relative  m-w-full  h-200 overflow-hidden">
+    <section className=" ">
+      <div className="relative  m-w-full  h-200 overflow-hidden ">
         <div
-          className="absolute inset-x-0 top-0 
+          className="absolute inset-x-0 top-0   bg-black
           "
         >
           <img
             src={Parilla}
             alt=""
-            className="w-full h-200 object-cover opacity-60"
+            className="w-full h-200 object-cover opacity-30"
             style={{
               objectPosition: "center center",
             }}
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
-        <div className="relative z-10  pt-50 text-center text-white w-full">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
+        <div className="flex flex-col relative z-10  pt-50 text-center text-white w-full">
+          <h1 className="text-3xl md:text-7xl font-extrabold font-bebas-neue mb-2">
             Katios Inter
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            LOS SABORES DE MI TIERRA
-          </h2>
-          <span className="text-2xl md:text-3xl m-2">
-            Los mejores platos típicos de nuestra <strong>Colombia</strong>
-          </span>
+          <div className="flex flex-col gap-10">
+            <span className="text-2xl md:text-4xl m-2">
+              Nos encontramos segundo piso del Area Intenacional
+            </span>
+            <spam className="text-2xl">
+              Revisa nuestro menu y sorprendete con nuestros platos
+            </spam>
+          </div>
         </div>
       </div>
       {loading ? (

@@ -28,10 +28,10 @@ export default function KatiosFuncionario() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-[#360707] ">
+    <section className="min-h-screen ">
       <div className="relative  m-w-full  h-200 overflow-hidden">
         <div
-          className="absolute inset-x-0 top-0 
+          className="absolute inset-x-0 top-0  bg-black
           "
         >
           <img
@@ -48,12 +48,14 @@ export default function KatiosFuncionario() {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-2">
             Katios Funcionario
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            LOS SABORES DE MI TIERRA
-          </h2>
-          <span className="text-2xl md:text-3xl m-2">
-            Los mejores platos típicos de nuestra <strong>Colombia</strong>
-          </span>
+          <div className="flex flex-col gap-10">
+            <span className="text-2xl md:text-4xl m-2">
+              Nos encontramos en la zona de Aviaca Nacional
+            </span>
+            <spam className="text-2xl">
+              Revisa nuestro menu y sorprendete con nuestros platos
+            </spam>
+          </div>
         </div>
       </div>
       {loading ? (

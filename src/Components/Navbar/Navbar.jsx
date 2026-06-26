@@ -67,7 +67,7 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
-              <li>
+              <li className>
                 <Link to="/Ingreso" onClick={handleClick}>
                   <img className="h-12 w-14" src={LogoIngreso} alt="" />
                 </Link>

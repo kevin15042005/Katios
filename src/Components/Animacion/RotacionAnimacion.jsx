@@ -40,37 +40,40 @@ export default function RotatingTextMatrix({
   const right = rightTexts[rightIndex] || "";
 
   return (
-    <div className="bg-amber-500 px-6 py-3 rounded-2xl flex items-center gap-4 overflow-hidden">
+    <div className="bg-amber-500 inline-block rounded-4xl">
+      <div className="px-2 py-2  md:px-6 md:py-4 flex items-center gap-4 overflow-hidden  text-2xl tracking-wider">
+        <div className="w-36 h-8 px-6  flex items-center gap-4 overflow-hidden ">
+          {/* IZQUIERDA */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={left}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-100%", opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              className="font-bold text-white flex  font-bebas-neue text-center"
+            >
+              {left}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      {/* IZQUIERDA */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={left}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ type: "spring", damping: 30, stiffness: 400 }}
-          className="font-bold text-white flex"
-        >
-          {left}
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="w-px h-6 bg-white/40" />
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={right}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ type: "spring", damping: 30, stiffness: 400 }}
-          className="font-bold text-white flex"
-        >
-          {right}
-        </motion.div>
-      </AnimatePresence>
-
+        <div className="w-px h-6 bg-white/60" />
+        <div className="w-35 h-8 px-6  flex items-center  gap-4 overflow-hidden text-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={right}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-100%", opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              className="font-bold text-white flex font-bebas-neue text-center"
+            >
+              {right}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 }

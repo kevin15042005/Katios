@@ -37,10 +37,10 @@ export default function Tarjeta({ info }) {
         />
       </div>
 
-      <div className="bg-amber-600 flex flex-col gap-4 p-4">
-        <h3 className="font-bold text-xl text-white">{info.name}</h3>
+      <div className="bg-amber-800 flex flex-col gap-4 p-4">
+        <h3 className="font-bold font-bebas-neue  text-4xl text-white ">{info.name}</h3>
 
-        <p className="text-white">{info.descripcion}</p>
+        <p className="text-white font-roboto-regular">{info.descripcion}</p>
 
         <div className="bg-white text-black font-bold mx-auto px-4 py-2 rounded-xl hover:bg-amber-800 transition-all duration-300">
           <Link to={info.path} onClick={handleRedirect}>

@@ -26,7 +26,7 @@ export default function LayoutMain() {
       <div>
         {Number(rol) === 1 ? <NavbarAdmin /> : <Navbar />}
 
-        <main className="bg-[#360707] min-h-screen flex flex-col ">
+        <main className="bg-[#360707] min-h-screen flex flex-col  ">
          <div className="" >
           <Outlet  />
 
