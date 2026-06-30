@@ -59,7 +59,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <li className="border-2 py-2 px-4 rounded-2xl " key={link.name}>
                   {link.name === "Sedes" ? (
-                    <SubMenus />
+                    <SubMenus  closeNavbar={()=>setIsMenuOpen(false)} />
                   ) : (
                     <Link to={link.path} onClick={handleClick}>
                       {link.name}
@@ -90,7 +90,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li className=" py-2 px-4 rounded-2xl " key={link.name}>
                 {link.name === "Sedes" ? (
-                  <SubMenus />
+                  <SubMenus closeNavbar={()=>setIsMenuOpen(false)} />
                 ) : (
                   <Link to={link.path} onClick={handleClick}>
                     {link.name}

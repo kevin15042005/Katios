@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-export default function SubMenus() {
+export default function SubMenus({closeNavbar}) {
   const [subMenuSedes, setSubMenuSede] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef(null);
@@ -83,21 +83,21 @@ export default function SubMenus() {
     };
   }, []);
 
-  const handleSedeClick = () => {
-    // Cierra el submenu
-    setSubMenuSede(false);
+const handleSedeClick = () => {
+  // Cierra el submenú
+  setSubMenuSede(false);
 
-    // Cierra el navbar móvil completo
-    window.dispatchEvent(
-      new CustomEvent("close-navbar")
-    );
+  // Cierra el menú hamburguesa (solo en móvil)
+  if (closeNavbar) {
+    closeNavbar();
+  }
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
+  // Sube al inicio
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
   return (
     <div
       ref={menuRef}
