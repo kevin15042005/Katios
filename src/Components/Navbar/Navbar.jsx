@@ -25,7 +25,6 @@ const Navbar = () => {
     }, 100);
   };
 
-  //Uffect subira la pagina del final al incio
 
   useEffect(() => {
     const handleScroll = () => {

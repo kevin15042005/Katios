@@ -76,6 +76,7 @@ export default function KatiosInter() {
         </div>
       ) : (
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
+          <h2>{index === 0 ? "Español":"English"}</h2>
           {" "}
           {cartas.map((carta) => (
             <HTMLFlipBook
