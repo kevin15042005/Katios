@@ -42,7 +42,7 @@ export default function Tarjeta({ info }) {
 
         <p className="text-white font-roboto-regular">{info.descripcion}</p>
 
-        <div className="bg-white text-black font-bold mx-auto px-4 py-2 rounded-xl hover:bg-amber-800 transition-all duration-300">
+        <div className="bg-white text-black font-bold mx-auto px-4 py-2 rounded-xl hover:bg-yellow-500 transition-all duration-300">
           <Link to={info.path} onClick={handleRedirect}>
             Ver más
           </Link>
