@@ -61,7 +61,7 @@ export default function NavbarUser() {
                 </Link>
               </li>
             ))}
-                      <button  className="border-2 py-2 px-4 rounded-2xl" onClick={handleSalir}>Salir</button>
+                      <button  className="border-2 py-2 px-4 rounded-2xl text-center" onClick={handleSalir}>Salir</button>
 
           </ul>
           <button
@@ -78,7 +78,7 @@ export default function NavbarUser() {
       >
         <ul className="flex flex-col items-center py-4 gap-y-2">
           {navLinks.map((link) => (
-            <li className=" py-2 px-4 rounded-2xl " key={link.name}>
+            <li className=" py-2 px-4 rounded-2xl text-center " key={link.name}>
               <Link to={link.path} onClick={handleClick}>
                 {link.name}
               </Link>
