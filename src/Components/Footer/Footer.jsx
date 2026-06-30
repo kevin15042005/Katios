@@ -18,7 +18,7 @@ export default function Footer() {
           <h3> Visita Nuestra</h3>{" "}
           <ul className="">
             <li className="hover:underline  text-[15px]  sm:text-[17px] text-amber-200">
-              <Link to="/Politica_privacidad">Politica de Privacidad</Link>
+              <Link to="/Politicas">Politica de Privacidad</Link>
             </li>
           </ul>
         </div>
