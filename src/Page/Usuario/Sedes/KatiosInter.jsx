@@ -78,7 +78,7 @@ export default function KatiosInter() {
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
   {cartas.map((carta, index) => (
     <React.Fragment key={carta.id}>
-      <h2>{index === 0 ? "Español" : "English"}</h2>
+      <h2 className="text-[16px] md:text-3xl">{index === 0 ? "Español" : "English"}</h2>
 
       <HTMLFlipBook
         key={`${carta.id}-${timestamp}`}
