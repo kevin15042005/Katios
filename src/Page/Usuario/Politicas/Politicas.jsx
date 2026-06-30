@@ -37,7 +37,7 @@ export default function Politicas() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Reglamento Trabajadores
+                  Proteccion a Usuario
                 </a>
               </button>{" "}
             </div>
@@ -56,7 +56,7 @@ export default function Politicas() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Reglamento Trabajadores
+                    Reglamento Trabajo
                   </a>
                 </button>{" "}
               </div>
