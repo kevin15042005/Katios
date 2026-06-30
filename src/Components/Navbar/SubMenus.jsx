@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-export default function SubMenus({closeNavbar}) {
+export default function SubMenus({ closeNavbar }) {
   const [subMenuSedes, setSubMenuSede] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef(null);
@@ -62,59 +62,38 @@ export default function SubMenus({closeNavbar}) {
   // Cerrar al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         setSubMenuSede(false);
       }
     };
 
-    document.addEventListener(
-      "mousedown",
-      handleClickOutside
-    );
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside
-      );
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-const handleSedeClick = () => {
-  // Cierra el submenú
-  setSubMenuSede(false);
+  const handleSedeClick = () => {
+    setSubMenuSede(false);
 
-  // Cierra el menú hamburguesa (solo en móvil)
-  if (closeNavbar) {
-    closeNavbar();
-  }
+    if (closeNavbar) {
+      closeNavbar();
+    }
 
-  // Sube al inicio
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div
       ref={menuRef}
       className="relative"
-      onMouseEnter={() =>
-        !isMobile && setSubMenuSede(true)
-      }
-      onMouseLeave={() =>
-        !isMobile && setSubMenuSede(false)
-      }
+      onMouseEnter={() => !isMobile && setSubMenuSede(true)}
+      onMouseLeave={() => !isMobile && setSubMenuSede(false)}
     >
-      <button
-        onClick={() =>
-          isMobile &&
-          setSubMenuSede(!subMenuSedes)
-        }
-      >
+      <button onClick={() => isMobile && setSubMenuSede(!subMenuSedes)}>
         Sedes{" "}
         <span
           className={`inline-block text-xs transition-transform duration-300 ${
@@ -128,9 +107,7 @@ const handleSedeClick = () => {
       {subMenuSedes && (
         <div
           className={`${
-            isMobile
-              ? "relative mt-2"
-              : "absolute top-full left-0 pt-4"
+            isMobile ? "relative mt-2" : "absolute top-full left-0 pt-4"
           } z-50`}
         >
           <div className="bg-amber-800/30 border border-amber-500/20 backdrop-blur-md rounded-lg shadow-2xl py-6 overflow-hidden">
@@ -141,13 +118,9 @@ const handleSedeClick = () => {
                 onClick={handleSedeClick}
                 className="block px-4 py-2 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500 rounded-2xl"
               >
-                <span className="block font-bold">
-                  {sede.nombre}
-                </span>
+                <span className="block font-bold">{sede.nombre}</span>
 
-                <span className="text-xs text-gray-400 block">
-                  {sede.info}
-                </span>
+                <span className="text-xs text-gray-400 block">{sede.info}</span>
 
                 <div className="h-1 w-full bg-amber-500 mx-auto rounded-b-full"></div>
               </Link>
