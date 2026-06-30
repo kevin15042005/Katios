@@ -27,7 +27,7 @@ export default function EliminarCarta({ id, obtenerCartas }) {
       onClick={eliminar}
       className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-xl text-white font-bold"
     >
-      🗑 Eliminar
+      🗑
     </button>
   );
 }

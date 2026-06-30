@@ -71,7 +71,7 @@ export default function ActualizacionCarta({
           href={`${import.meta.env.VITE_API_URL}/pdfs/${carta.pdf}`}
           target="_blank"
           rel="noreferrer"
-          className="bg-red-600 hover:bg-red-700 transition-all duration-300 px-4 py-3 rounded-xl text-white text-center font-bold"
+          className="bg-red-600 hover:bg-red-700 transition-all duration-300 px-4 py-3 rounded-xl text-white text-center font-bold text-[14px] md:text-2xl "
         >
           Ver PDF
         </a>
