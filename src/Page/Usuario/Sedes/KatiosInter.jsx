@@ -76,37 +76,41 @@ export default function KatiosInter() {
         </div>
       ) : (
         <div className="flex flex-col items-center gap-16 w-full max-w-full overflow-hidden isolate my-10">
-          <h2>{index === 0 ? "Español":"English"}</h2>
-          {" "}
-          {cartas.map((carta) => (
-            <HTMLFlipBook
-              key={`${carta.id}-${timestamp}`}
-              width={450}
-              height={650}
-              size="stretch"
-              showCover={true}
-              minWidth={250}
-              maxWidth={500}
-              minHeight={650}
-              maxHeight={650}
-              usePortrait={true}
-              startPage={0}
-              mobileScrollSupport={true}
-              className="mx-auto"
-            >
-              {carta.pages?.map((img, i) => (
-                <div key={i}>
-                  <img
-                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamp}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-              ))}
-            </HTMLFlipBook>
+          {cartas.map((carta, index) => (
+            <div key={carta.id} className="flex flex-col items-center">
+              <h2 className="text-3xl font-bold mb-5">
+                {index === 0 ? "Carta - Español" : "Carta - English"}
+              </h2>
+
+              <HTMLFlipBook
+                key={`${carta.id}-${timestamp}`}
+                width={450}
+                height={650}
+                size="stretch"
+                showCover={true}
+                minWidth={250}
+                maxWidth={500}
+                minHeight={650}
+                maxHeight={650}
+                usePortrait={true}
+                startPage={0}
+                mobileScrollSupport={true}
+                className="mx-auto"
+              >
+                {carta.pages?.map((img, i) => (
+                  <div key={i}>
+                    <img
+                      src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamp}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                ))}
+              </HTMLFlipBook>
+            </div>
           ))}
         </div>
       )}
