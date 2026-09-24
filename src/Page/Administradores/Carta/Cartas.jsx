@@ -77,8 +77,10 @@ export default function Cartas() {
                     </td>
 
                     <td className="p-3 md:p-4">
-                      <a
-                        href={`${import.meta.env.VITE_API_URL}/pdfs/${carta.pdf}`}
+                  <a
+                        href={`${import.meta.env.VITE_API_URL}/cartas/${
+                          carta.pdf?.includes(",") ? carta.pdf.split(",")[0] : carta.pdf
+                        }`}
                         target="_blank"
                         rel="noreferrer"
                         className="bg-red-600 hover:bg-red-700 transition-all duration-300 px-3 py-1.5 rounded-lg inline-block text-xs md:text-sm font-bold whitespace-nowrap"

@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/Rt11/KatiosRt11.webp";
+import Parilla from "@/assets/ToGo/KatiosToGo.webp";
 
-export default function KatiosInter() {
+export default function KatiosToGo() {
   const [cartas, setCartas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [timestamp] = useState(new Date().getTime());
 
   const obtenerCartas = async () => {
     try {
+      setLoading(true);
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas_Punto/2`,
       );
-      setCartas(res.data || []);
+
+      const cartasData = res.data || [];
+      
+      // El backend ya nos entrega el arreglo 'pages' limpio con los PNGs de este punto
+      setCartas(cartasData);
     } catch (err) {
-      console.log(err);
+      console.log("Error al obtener cartas:", err);
       setCartas([]);
     } finally {
       setLoading(false);
@@ -27,11 +32,8 @@ export default function KatiosInter() {
   }, []);
 
   return (
-    
-
-
- <section className="">
-      <div className="relative  m-w-full  h-200 overflow-hidden">
+    <section className=" ">
+      <div className="relative  m-w-full  h-160 overflow-hidden">
         <div
           className="absolute inset-x-0 top-0  bg-black
           "
@@ -39,25 +41,21 @@ export default function KatiosInter() {
           <img
             src={Parilla}
             alt=""
-            className="w-full h-200 object-cover opacity-30"
-            style={{
-              objectPosition: "center center",
-            }}
+            className="object-cover  opacity-40 w-full h-150 "
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
-        <div className="relative z-10  pt-50 text-center text-white w-full">
+        <div className="relative z-10  pt-50 text-center text-white w-full mt">
           <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
-            Katios Inter
+            Katios To Go
           </h1>
-                   <div className="flex flex-col gap-10">
-
-          <span className="text-2xl md:text-4xl m-2">
-            Nos encontramos en el primer piso del Area Intenacional
-          </span>
-            <spam className="text-[16px] md:text-2xl w-85 md:w-full">
+          <div className="flex flex-col gap-10">
+            <span className="text-2xl md:text-4xl m-2">
+              Nos encontramos en la zona de Aviaca Nacional
+            </span>
+            <span className="text-[16px] md:text-2xl w-85 md:w-full">
               Revisa nuestro menu y sorprendete con nuestros platos
-            </spam>
+            </span>
           </div>
         </div>
       </div>
@@ -90,24 +88,35 @@ export default function KatiosInter() {
               minWidth={250}
               maxWidth={500}
               minHeight={650}
-              maxHeight={650}
+              maxHeight={750}
               usePortrait={true}
               startPage={0}
               mobileScrollSupport={true}
               className="mx-auto"
             >
-              {carta.pages?.map((img, i) => (
-                <div key={i}>
-                  <img
-                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamp}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-              ))}
+              {carta.pages?.map((img, i) => {
+                const urlImagen = `${import.meta.env.VITE_API_URL}/cartas/${img}`;
+
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center bg-white"
+                  >
+                    <img
+                      src={`${urlImagen}?t=${timestamp}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      alt={`Página ${i + 1}`}
+                      onError={(e) => {
+                        console.error("Error cargando:", e.target.src);
+                      }}
+                    />
+                  </div>
+                );
+              })}
             </HTMLFlipBook>
           ))}
         </div>
@@ -128,7 +137,7 @@ export default function KatiosInter() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
+      </div>{" "}
     </section>
   );
 }

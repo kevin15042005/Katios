@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
+import ImagenIngreso from "../../../assets/ImagenIngreso.jpeg";
 
 export default function OlvidarContrasena() {
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
@@ -53,8 +54,16 @@ export default function OlvidarContrasena() {
 
   return (
     <>
-      <section className="min-h-screen pt-40 bg-gray-500 pb-10">
-        <div className="max-w-3xl md:max-w-5xl mx-auto w-80">
+      <section className="relative min-h-screen flex items-center justify-center p-40">
+        <div className="absolute inset-0 bg-black z-0">
+          <img
+            src={ImagenIngreso}
+            alt="Fondo de ingreso"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+
+        <div className="relative max-w-3xl md:max-w-5xl mx-auto w-80 z-20">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-white mb-4">
               Recuperacion Contrasena
@@ -63,12 +72,12 @@ export default function OlvidarContrasena() {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <div className="bg-gray-200/20 py-20 px-18 rounded-3xl">
+            <div className="bg-black/40  py-20 px-18 rounded-3xl">
               
               {/* Asignamos la función al onSubmit del formulario */}
-              <form onSubmit={actualizarUsuario} className="w-full">
+              <form onSubmit={actualizarUsuario} className="w-full  ">
                 <fieldset className="flex flex-col text-center mb-4">
-                  <label htmlFor="" className="font-bold text-3xl mb-2">
+                  <label htmlFor="" className="font-bold text-3xl mb-2 text-white">
                     Nombre
                   </label>
                   <input
@@ -82,7 +91,7 @@ export default function OlvidarContrasena() {
                 </fieldset>
 
                 <fieldset className="flex flex-col text-center mb-4">
-                  <label htmlFor="" className="font-bold text-3xl mb-2">
+                  <label htmlFor="" className="font-bold text-3xl mb-2 text-white">
                     Pin
                   </label>
                   <input
@@ -96,7 +105,7 @@ export default function OlvidarContrasena() {
                 </fieldset>
 
                 <fieldset className="flex flex-col text-center mb-4">
-                  <label htmlFor="" className="font-bold text-3xl mb-2">
+                  <label htmlFor="" className="font-bold text-3xl mb-2 text-white">
                     Contrasena Nueva
                   </label>
                   <div className="bg-red-600 relative flex items-center border-2 border-amber-50 rounded-2xl py-2 px-4">
@@ -117,20 +126,21 @@ export default function OlvidarContrasena() {
                     </button>
                   </div>
                 </fieldset>
-
-                {/* El enlace ahora está correctamente protegido dentro del form */}
-                <div className="flex gap-4 font-bold text mt-6 hover:text-blue-300 transition-all duration-400">
-                  <Link to={"/Ingreso"} onClick={handleRedirect}>
-                    Volver
-                  </Link>
-                </div>
-
-                {/* El botón cambió a type="submit" y está dentro de su contenedor estético */}
+                  {/* El botón cambió a type="submit" y está dentro de su contenedor estético */}
                 <div className="font-bold flex justify-center text-center items-center bg-[#ff0000] p-4 rounded-2xl pt-2 mt-6 hover:bg-red-600 transform-3d duration-300">
                   <button type="submit" className="w-full h-full text-white">
                     Actualizar
                   </button>
                 </div>
+
+                {/* El enlace ahora está correctamente protegido dentro del form */}
+                <div className="flex justify-center gap-4 font-bold text mt-6 hover:text-blue-300 transition-all duration-400 text-white ">
+                  <Link to={"/Ingreso"} onClick={handleRedirect}>
+                    Volver
+                  </Link>
+                </div>
+
+              
               </form>
 
             </div>

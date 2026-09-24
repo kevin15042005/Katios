@@ -31,14 +31,13 @@ export default function Creacion() {
       <section className="min-h-screen pt-40 px-6  text-black bg-[#1a1a1a]">
         <div className="max-w-7xl md:max-w-5xl mx-auto w-full ">
           <div className="flex flex-col justify-between items-center mb-10">
-            <h1 className="text-4xl font-black mb-6 text-white">Subir carta</h1>
-            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
+ <h1 className=" text-4xl font-black mb-6 text-white">
+              Visualizacion de Perfiles
+            </h1>            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
           </div>
 
           <div>
-            <h1 className=" text-4xl font-black mb-6 text-white">
-              Visualizacion de Perfiles
-            </h1>
+           
             <div>
               <div className="bg-green-600 w-max flex justify-end items-end my-8 rounded-2xl p-3 hover:bg-amber-400 transition-all duration-300">
                 <button

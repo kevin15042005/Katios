@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import QR from "../../../Components/QR/QR";
 import ImagenIngreso from "../../../assets/ImagenIngreso.jpeg";
 
 export default function Ingreso() {

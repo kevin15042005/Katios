@@ -10,13 +10,17 @@ export default function KatiosToGo() {
 
   const obtenerCartas = async () => {
     try {
+      setLoading(true);
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas_Punto/5`,
       );
 
-      setCartas(res.data || []);
+      const cartasData = res.data || [];
+      
+      // El backend ya nos entrega el arreglo 'pages' limpio con los PNGs de este punto
+      setCartas(cartasData);
     } catch (err) {
-      console.log(err);
+      console.log("Error al obtener cartas:", err);
       setCartas([]);
     } finally {
       setLoading(false);
@@ -49,9 +53,9 @@ export default function KatiosToGo() {
             <span className="text-2xl md:text-4xl m-2">
               Nos encontramos en la zona de Aviaca Nacional
             </span>
-              <spam className="text-[16px] md:text-2xl w-85 md:w-full">
-                Revisa nuestro menu y sorprendete con nuestros platos
-              </spam>
+            <span className="text-[16px] md:text-2xl w-85 md:w-full">
+              Revisa nuestro menu y sorprendete con nuestros platos
+            </span>
           </div>
         </div>
       </div>
@@ -84,24 +88,35 @@ export default function KatiosToGo() {
               minWidth={250}
               maxWidth={500}
               minHeight={650}
-              maxHeight={650}
+              maxHeight={750}
               usePortrait={true}
               startPage={0}
               mobileScrollSupport={true}
               className="mx-auto"
             >
-              {carta.pages?.map((img, i) => (
-                <div key={i}>
-                  <img
-                    src={`${import.meta.env.VITE_API_URL}${img}?t=${timestamp}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-              ))}
+              {carta.pages?.map((img, i) => {
+                const urlImagen = `${import.meta.env.VITE_API_URL}/cartas/${img}`;
+
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center bg-white"
+                  >
+                    <img
+                      src={`${urlImagen}?t=${timestamp}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      alt={`Página ${i + 1}`}
+                      onError={(e) => {
+                        console.error("Error cargando:", e.target.src);
+                      }}
+                    />
+                  </div>
+                );
+              })}
             </HTMLFlipBook>
           ))}
         </div>
@@ -109,8 +124,7 @@ export default function KatiosToGo() {
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"
-        
-    style={{
+          style={{
             width: "90%",
             margin: "0",
             maxWidth: "800px",
@@ -118,7 +132,8 @@ export default function KatiosToGo() {
             maxHeight: "60vh",
             border: "2px solid #ccc",
             borderRadius: "12px",
-          }}          allowFullScreen=""
+          }}
+          allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>

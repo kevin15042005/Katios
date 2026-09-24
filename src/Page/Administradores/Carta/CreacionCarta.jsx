@@ -16,7 +16,7 @@ export default function CrearCarta({ obtenerCartas }) {
     try {
       const formData = new FormData();
       formData.append("punto_id", punto_id);
-      formData.append("pdf", pdf);
+      formData.append("imagen", pdf);
 
       await axios.post(
         `${import.meta.env.VITE_API_URL}/cartas/crear_cartas`,

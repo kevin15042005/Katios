@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="grid grid-cols-1 md:grid-cols-3 gap-5 bg-[#ec6e06] inset-0 bg-linear-to-t from-transparent from-90% to-[#360707] p-4 font-semibold text-white">
+      <footer className="grid grid-cols-1 md:grid-cols-3 gap-5 bg-[#530c0c] inset-0 bg-linear-to-t from-transparent from-90% to-[#360707] p-4 font-semibold text-white">
         {/* Sección 1: Ubicación */}
         <div className="flex justify-center items-center flex-col gap-2 mt-4 font-bebas-neue border-2 rounded-2xl p-4">
           <h3>Encuentranos en Aeropuerto El Dorado</h3>

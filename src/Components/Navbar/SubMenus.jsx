@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-export default function SubMenus({ closeNavbar }) {
+export default function SubMenus({ closeNavbar, onNavigate }) {
   const [subMenuSedes, setSubMenuSede] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef(null);
@@ -74,18 +74,19 @@ export default function SubMenus({ closeNavbar }) {
     };
   }, []);
 
-  const handleSedeClick = () => {
+  const handleSedeClick = (e, ruta) => {
+    e.preventDefault(); // Previene el salto inmediato para permitir la animación
     setSubMenuSede(false);
 
     if (closeNavbar) {
       closeNavbar();
     }
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (onNavigate) {
+      onNavigate(ruta); // Dispara la transición suave del Navbar
+    }
   };
+
   return (
     <div
       ref={menuRef}
@@ -115,7 +116,7 @@ export default function SubMenus({ closeNavbar }) {
               <Link
                 key={sede.id}
                 to={sede.ruta}
-                onClick={handleSedeClick}
+                onClick={(e) => handleSedeClick(e, sede.ruta)}
                 className="block px-4 py-2 hover:bg-amber-500 hover:text-amber-700 transition-colors border-l-4 border-transparent hover:border-amber-500 rounded-2xl"
               >
                 <span className="block font-bold">{sede.nombre}</span>
