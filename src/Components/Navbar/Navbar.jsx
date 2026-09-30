@@ -12,7 +12,6 @@ const Navbar = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
 
-  // Direccionamiento
   const navLinks = [
     { name: "Inicio", path: "/" },
     { name: "Nosotros", path: "/Nosotros" },
@@ -20,19 +19,16 @@ const Navbar = () => {
     { name: "Politicas", path: "/Politicas" },
   ];
 
-  // Función de navegación con animación de píxeles suave
   const handleNavigation = (path) => {
     if (isAnimating) return;
     setIsMenuOpen(false);
     setIsAnimating(true);
 
-    // Cambia de ruta a mitad de la transición (500ms)
     setTimeout(() => {
       navigate(path);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 500);
 
-    // Desmonta la capa de píxeles al terminar por completo (1200ms)
     setTimeout(() => {
       setIsAnimating(false);
     }, 1200);
@@ -50,7 +46,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Capa de Transición de Píxeles Suave y Elegante */}
       <AnimatePresence>
         {isAnimating && (
           <div className="fixed inset-0 z-100 grid grid-cols-10 grid-rows-10 pointer-events-none overflow-hidden w-screen h-screen">
@@ -73,8 +68,8 @@ const Navbar = () => {
       </AnimatePresence>
 
       <nav
-        className={`font-sans text-white p-4 bg-[#292525] flex items-center justify-between fixed inset-x-12 rounded-2xl top-1 z-50 transition-all duration-300 bg-[#292525] ${
-          isScrolled ? "bg-[#292525] shadow-xl/70 " : "bg-[#292525]"
+        className={`font-sans text-white p-3 md:p-4 bg-[#292525] flex items-center justify-between fixed inset-x-4 md:inset-x-12 rounded-2xl top-2 z-50 transition-all duration-300 ${
+          isScrolled ? "shadow-xl/70" : ""
         }`}
       >
         <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
@@ -82,15 +77,15 @@ const Navbar = () => {
             <img
               src={Logo}
               alt="Logo Katios"
-              className={`${isScrolled ? "rounded" : ""}`}
+              className={`h-10 md:h-12 ${isScrolled ? "rounded" : ""}`}
             />
           </div>
 
-          {/* Menu of Desktop */}
+          {/* Menu de Desktop */}
           <div className="flex items-center justify-center">
-            <ul className="hidden md:flex flex-row items-center space-x-8 ml-auto">
+            <ul className="hidden md:flex flex-row items-center space-x-6 lg:space-x-8 ml-auto">
               {navLinks.map((link) => (
-                <li className="border-2 py-2 px-4 rounded-2xl" key={link.name}>
+                <li className="border-2 py-1.5 px-3 lg:py-2 lg:px-4 rounded-2xl" key={link.name}>
                   {link.name === "Sedes" ? (
                     <SubMenus 
                       closeNavbar={() => setIsMenuOpen(false)} 
@@ -111,32 +106,32 @@ const Navbar = () => {
                   onClick={() => handleNavigation("/Ingreso")}
                   className="cursor-pointer bg-transparent border-none p-0 flex items-center"
                 >
-                  <img className="h-12 w-14" src={LogoIngreso} alt="Ingreso" />
+                  <img className="h-10 w-12 lg:h-12 lg:w-14" src={LogoIngreso} alt="Ingreso" />
                 </button>
               </li>
             </ul>
 
-            {/* Botón de Menú Hamburguesa Móvil (Restaurado) */}
+            {/* Botón de Menú Hamburguesa Móvil */}
             <button
               className="md:hidden transition-all duration-700 ml-auto cursor-pointer"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
-        {/* Menu Mobile */}
+        {/* Menu Mobile optimizado con altura máxima y scroll para modo horizontal */}
         <div
-          className={`absolute top-full left-0 w-full bg-[#292525]/90 border-t border-amber-400 md:hidden transition-all duration-500 ease-in-out ${
+          className={`absolute top-full left-0 w-full bg-[#292525]/95 backdrop-blur-md border-t border-amber-400 md:hidden transition-all duration-300 ease-in-out max-h-[75vh] overflow-y-auto rounded-b-2xl shadow-2xl ${
             isMenuOpen
               ? "translate-y-0 opacity-100 visible z-50"
               : "-translate-y-full opacity-0 invisible -z-10 pointer-events-none"
           }`}
         >
-          <ul className="flex flex-col items-center py-4 gap-y-2">
+          <ul className="flex flex-col items-center py-3 gap-y-1">
             {navLinks.map((link) => (
-              <li className="py-2 px-4 rounded-2xl w-full text-center" key={link.name}>
+              <li className="py-1 px-4 rounded-xl w-full text-center" key={link.name}>
                 {link.name === "Sedes" ? (
                   <SubMenus 
                     closeNavbar={() => setIsMenuOpen(false)} 
@@ -145,20 +140,20 @@ const Navbar = () => {
                 ) : (
                   <button
                     onClick={() => handleNavigation(link.path)}
-                    className="cursor-pointer bg-transparent border-none text-white font-inherit w-full"
+                    className="cursor-pointer bg-transparent border-none text-white font-inherit w-full py-1 text-sm sm:text-base"
                   >
                     {link.name}
                   </button>
                 )}
-                <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full mt-2"></div>
+                <div className="h-0.5 w-16 bg-amber-500/60 mx-auto rounded-b-full mt-1.5"></div>
               </li>
             ))}
-            <li>
+            <li className="py-1">
               <button
                 onClick={() => handleNavigation("/Ingreso")}
                 className="cursor-pointer bg-transparent border-none p-0 flex items-center justify-center"
               >
-                <img className="h-10 w-12" src={LogoIngreso} alt="Ingreso" />
+                <img className="h-8 w-10" src={LogoIngreso} alt="Ingreso" />
               </button>
             </li>
           </ul>

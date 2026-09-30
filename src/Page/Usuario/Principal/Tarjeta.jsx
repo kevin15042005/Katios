@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Tarjeta.css"; 
 
-export default function Tarjeta({ info }) {
+export default function Tarjeta({ info, index }) {
   const [imagenActual, setImagenActual] = useState(0);
 
   useEffect(() => {
@@ -29,9 +29,12 @@ export default function Tarjeta({ info }) {
     return null;
   }
 
+  // En PC (md:) alterna izquierda (-100) y derecha (100) según el índice, en móvil siempre izquierda (-100)
+  const initialX = index % 2 === 0 ? -100 : 100;
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -100 }} // Todas entran desde la izquierda de manera uniforme
+      initial={{ opacity: 0, x: -100 }} // Móvil: siempre desde la izquierda
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{
@@ -40,7 +43,7 @@ export default function Tarjeta({ info }) {
         damping: 20,
         duration: 0.8,
       }}
-      className="flex flex-col justify-center text-center m-4 overflow-hidden rounded-2xl shadow-lg"
+      className={`flex flex-col justify-center text-center m-4 overflow-hidden rounded-2xl shadow-lg md:initial-desktop`}
     >
       <div className="h-100 overflow-hidden">
         <img
