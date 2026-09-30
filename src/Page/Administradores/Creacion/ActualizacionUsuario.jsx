@@ -49,7 +49,7 @@ export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
         >
           <input
             type="text"
-            placeholder="Nombre"
+            placeholder="NOMBRE"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
                         className="text-center border-2 rounded-2xl p-2 mb-2"
@@ -57,7 +57,7 @@ export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
           />
           <input
             type="text"
-            placeholder="Pin"
+            placeholder="PIN"
             value={pin}
             onChange={(e) => setPin(e.target.value)}
                         className="text-center border-2 rounded-2xl p-2 mb-2"
@@ -65,7 +65,7 @@ export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
           />
           <input
             type="text"
-            placeholder="ueva Contrasena"
+            placeholder="NUEVA CONTRASEÑA"
             value={nuevacontrasena}
             onChange={(e) => setNuevaContrasena(e.target.value)}
                         className="text-center border-2 rounded-2xl p-2 mb-2"
@@ -76,7 +76,7 @@ export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
             type="button"
             onClick={actualizarUsuario}
           >
-            Actualizar
+            ACTUALIZAR
           </button>
         </form>
       </div>

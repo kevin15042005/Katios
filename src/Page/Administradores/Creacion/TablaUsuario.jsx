@@ -4,6 +4,10 @@ import EliminarUsuario from "./EliminarUsuario";
 import CreacionUsuario from "./CreacionUsuario";
 import ActualizacionUsuario from "./ActualizacionUsuario";
 import { UserPlus } from "lucide-react";
+
+// 1. IMPORTAR LA IMAGEN (Ajusta la ruta según tu estructura de archivos)
+import ImagenFondo from "../../../assets/ImagenIngreso.jpeg";
+
 export default function Creacion() {
   const [obtenerUsuario, setObtenerUsuario] = useState([]);
   //Estados de popup
@@ -28,18 +32,27 @@ export default function Creacion() {
 
   return (
     <>
-      <section className="min-h-screen pt-40 px-6  text-black bg-[#1a1a1a]">
-        <div className="max-w-7xl md:max-w-5xl mx-auto w-full ">
+      <section className="min-h-screen pt-40 px-6 text-black bg-[#1a1a1a]  relative w-full overflow-x-hidden">
+        
+        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-black">
+          <img
+            src={ImagenFondo}
+            alt="Fondo"
+            className="w-full h-full object-cover opacity-30" 
+          />
+        </div>
+
+        <div className="max-w-7xl md:max-w-5xl mx-auto w-full relative z-10">
           <div className="flex flex-col justify-between items-center mb-10">
- <h1 className=" text-4xl font-black mb-6 text-white">
+            <h1 className=" text-4xl font-black mb-6 text-white">
               Visualizacion de Perfiles
-            </h1>            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
+            </h1>{" "}
+            <div className="h-1 w-20 bg-amber-500 mx-auto rounded-b-full"></div>
           </div>
 
           <div>
-           
             <div>
-              <div className="bg-green-600 w-max flex justify-end items-end my-8 rounded-2xl p-3 hover:bg-amber-400 transition-all duration-300">
+              <div className="bg-[#06c200b2] w-max flex justify-end items-end my-8 rounded-2xl p-3 hover:bg-[#06c200e8] transition-all duration-300">
                 <button
                   onClick={() => {
                     setMostrarActualizar(false);
@@ -72,8 +85,9 @@ export default function Creacion() {
                 </div>
               )}
             </div>
+            
             <div className="hidden md:block">
-              <table className="w-full mx-auto  bg-[#292525]  text-white rounded-2xl  overflow-hidden shadow-2xl">
+              <table className="w-full mx-auto  backdrop-blur-sm text-black rounded-2xl overflow-hidden shadow-2xl">
                 <thead className="bg-[#fe9a00] text-white">
                   <tr>
                     <th className="py-4 px-6">ID</th>
@@ -87,14 +101,14 @@ export default function Creacion() {
                   {obtenerUsuario.map((usuario) => (
                     <tr
                       key={usuario.id}
-                      className="text-center border-b hover:bg-green-50/20"
+                      className="text-center text-amber-50  border-b border-gray-700 hover:bg-black/20  "
                     >
                       <td className="py-3">{usuario.id}</td>
-                      <td>{usuario.nombre_usuario}</td>
+                      <td className="font-medium">{usuario.nombre_usuario}</td>
 
                       <td>
                         <button
-                          className="bg-blue-500 text-white px-3 py-2 rounded-xl"
+                          className="bg-blue-500 text-white px-3 py-2 rounded-xl hover:bg-blue-600 transition-colors"
                           onClick={() => {
                             setUsuarioSeleccionado(usuario);
                             setMostrarActualizar(true);
@@ -117,12 +131,13 @@ export default function Creacion() {
                 </tbody>
               </table>
             </div>
+
           </div>
           <div className="md:hidden space-y-4 mt-6">
             {obtenerUsuario.map((usuario) => (
               <div
                 key={usuario.id}
-                className="bg-white p-4 rounded-2xl shadow-lg"
+                className="bg-white/90 p-4 rounded-2xl shadow-lg border border-gray-200"
               >
                 <p>
                   <b>ID:</b> {usuario.id}
@@ -133,7 +148,7 @@ export default function Creacion() {
 
                 <div className="flex justify-between mt-4">
                   <button
-                    className="bg-blue-500 text-white px-3 py-2 rounded-xl"
+                    className="bg-blue-500 text-white px-3 py-2 rounded-xl hover:bg-blue-600 transition-colors"
                     onClick={() => {
                       setUsuarioSeleccionado(usuario);
                       setMostrarActualizar(true);

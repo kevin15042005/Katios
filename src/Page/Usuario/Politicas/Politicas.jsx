@@ -24,31 +24,31 @@ export default function Politicas() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 my-20 ">
             <div className="w-75 md:w-95  mx-auto flex flex-col items-center justify-center  text-center gap-6 bg-[#F9F4DB]/80 p-4 md:p-10 rounded-4xl my-4 md:my-0 ">
-              <h2 className="text-2xl md:text-4xl font-extrabold text-amber-50 text-center ">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-amber-50 text-center   font-bebas-neue">
                 Usuarios
               </h2>
               <p className=" text-[16px] md:text-4xlfont-extrabold font-roboto-regular  text-amber-50 ">
                 Informate sobre nuestras politicas
               </p>
-              <button className="bg-amber-400 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-amber-500 transition-colors inline-block">
+              <button className="bg-amber-400 text-slate-900 font-bold py-4 px-7  rounded-lg hover:bg-amber-500 transition-colors inline-block  font-bebas-neue">
                 {" "}
                 <a
                   href="https://drive.google.com/drive/folders/1LJ9E8Rkl_nOk_omyuf4LJT8mSc0cGxMW"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Proteccion a Usuario
+                  Proteccion a  el Usuario
                 </a>
               </button>{" "}
             </div>
              <div className="w-75 md:w-95 mx-auto flex flex-col items-center justify-center  text-center gap-6 bg-[#F9F4DB]/80 p-4 md:p-10 rounded-4xl my-4 md:my-0 ">
-              <h2 className="text-2xl md:text-4xl font-extrabold text-amber-50 text-center ">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-amber-50 text-center  font-bebas-neue">
                 Trabajador
               </h2>
-              <p className=" text-[16px] md:text-4xlfont-extrabold font-roboto-regular  text-amber-50 ">
+              <p className=" text-[16px] md:text-4xlfont-extrabold font-roboto-regular  text-amber-50  ">
                 Informate sobre nuestras politicas
               </p>
-              <button className="bg-amber-400 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-amber-500 transition-colors inline-block">
+              <button className="bg-amber-400 text-slate-900 font-bold py-4 px-7 rounded-lg hover:bg-amber-500 transition-colors inline-block  font-bebas-neue">
                 {" "}
                 <a
                   href="https://drive.google.com/drive/folders/1LJ9E8Rkl_nOk_omyuf4LJT8mSc0cGxMW"

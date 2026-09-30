@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/ToGo/KatiosToGo.webp";
+import ImagenPrincipal from "@/assets/Puente/KatiosPuente.webp";
 
 export default function KatiosToGo() {
   const [cartas, setCartas] = useState([]);
@@ -39,7 +39,7 @@ export default function KatiosToGo() {
           "
         >
           <img
-            src={Parilla}
+            src={ImagenPrincipal}
             alt=""
             className="object-cover  opacity-40 w-full h-150 "
           />
@@ -47,11 +47,11 @@ export default function KatiosToGo() {
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full mt">
           <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
-            Katios To Go
+            Katios Puente 
           </h1>
           <div className="flex flex-col gap-10">
             <span className="text-2xl md:text-4xl m-2">
-              Nos encontramos en la zona de Aviaca Nacional
+              Nos encontramos en Puente Aero
             </span>
             <span className="text-[16px] md:text-2xl w-85 md:w-full">
               Revisa nuestro menu y sorprendete con nuestros platos

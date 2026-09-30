@@ -44,14 +44,14 @@ export default function CrearCarta({ obtenerCartas }) {
   };
 
   return (
-    <div className="bg-[#292525] p-6 rounded-2xl flex flex-col md:flex-row gap-4 items-center">
+    <div className="bg-[#ffffff31] p-6 rounded-2xl flex flex-col md:flex-row gap-4 items-center">
       
       <input
         type="number"
         placeholder="ID Punto"
         value={punto_id}
         onChange={(e) => setPuntoId(e.target.value)}
-        className="px-4 py-3 rounded-xl text-white bg-[#1f1f1f] border border-amber-500 outline-none w-full md:w-auto"
+        className="px-4 py-3 rounded-xl text-white bg-[#1f1f1f] border border-[#fe9a00] outline-none w-full md:w-auto"
       />
 
       <label className="flex items-center justify-center gap-2 bg-[#3a3535] hover:bg-[#4a4545] border border-dashed border-gray-500 text-white font-medium px-4 py-3 rounded-xl cursor-pointer shadow-md transition-all duration-300 w-full text-center project-upload-label">
@@ -71,7 +71,7 @@ export default function CrearCarta({ obtenerCartas }) {
       <button
         type="button"
         onClick={crearCarta}
-        className="bg-amber-500 hover:bg-amber-600 transition-all duration-300 px-10 py-3 rounded-xl font-bold text-black w-full md:w-auto"
+        className="bg-[#e78b00] hover:bg-amber-400 transition-all duration-300 px-10 py-3 rounded-xl font-bold text-black w-full md:w-auto"
       >
         Crear PDF
       </button>

@@ -4,6 +4,7 @@ import axios from "axios";
 import CrearCarta from "./CreacionCarta";
 import ActualizarCarta from "./ActualizacionCarta";
 import EliminarCarta from "./EliminarCarta";
+import ImagenIngreso from "../../../assets/ImagenIngreso.jpeg";
 
 export default function Cartas() {
   const [cartas, setCartas] = useState([]);
@@ -13,7 +14,7 @@ export default function Cartas() {
   const obtenerCartas = async () => {
     try {
       setCargando(true);
-      setMostrarActualizar(false); 
+      setMostrarActualizar(false);
 
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas`,
@@ -33,19 +34,28 @@ export default function Cartas() {
   }, []);
 
   return (
-    <section className="min-h-screen pt-40 px-4 md:px-6 text-white bg-[#1a1a1a] w-full overflow-x-hidden">
-      <div className="max-w-7xl mx-auto w-full">
-        
+    <section className="min-h-screen pt-40 px-4 md:px-6 text-white bg-[#1a1a1a] w-full overflow-x-hidden relative">
+      <div className="fixed inset-0 bg-black z-0 pointer-events-none">
+        <img
+          src={ImagenIngreso}
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* HEADER */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-10 w-full">
-          <h1 className="text-3xl md:text-4xl font-black text-center sm:text-left">Gestión de Cartas PDF</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-center sm:text-left">
+            Gestión de Cartas PDF
+          </h1>
           <CrearCarta obtenerCartas={obtenerCartas} />
         </div>
 
         {/* CONTENEDOR CON SCROLL RESPONSIVO */}
-        <div className="w-full overflow-x-auto rounded-xl shadow-lg bg-[#292525]">
-          <table className="w-full min-w-[600px] table-auto border-collapse">
-            <thead className="bg-amber-500 text-black">
+        <div className="w-full overflow-x-auto rounded-xl shadow-lg  backdrop-blur-sm z-10">
+          <table className="w-full min-w-150 table-auto border-collapse">
+            <thead className="bg-[#fe9800f1] text-black">
               <tr>
                 <th className="p-3 md:p-4 text-sm md:text-base">Punto</th>
                 <th className="p-3 md:p-4 text-sm md:text-base">PDF</th>
@@ -56,7 +66,10 @@ export default function Cartas() {
             <tbody>
               {cargando ? (
                 <tr>
-                  <td colSpan="3" className="p-10 text-center text-amber-500 font-bold">
+                  <td
+                    colSpan="3"
+                    className="p-10 text-center text-amber-500 font-bold"
+                  >
                     Cargando documentos desde el servidor...
                   </td>
                 </tr>
@@ -72,14 +85,16 @@ export default function Cartas() {
                     key={carta.id}
                     className="border-b border-gray-700 text-center hover:bg-black/20 transition-colors"
                   >
-                    <td className="p-3 md:p-4 font-bold text-sm md:text-base max-w-[200px] truncate">
+                    <td className="p-3 md:p-4 font-bold text-sm md:text-base max-w-50 truncate">
                       {carta.nombre_punto || `ID: ${carta.punto_id}`}
                     </td>
 
                     <td className="p-3 md:p-4">
-                  <a
+                      <a
                         href={`${import.meta.env.VITE_API_URL}/cartas/${
-                          carta.pdf?.includes(",") ? carta.pdf.split(",")[0] : carta.pdf
+                          carta.pdf?.includes(",")
+                            ? carta.pdf.split(",")[0]
+                            : carta.pdf
                         }`}
                         target="_blank"
                         rel="noreferrer"
@@ -90,14 +105,17 @@ export default function Cartas() {
                     </td>
 
                     <td className="p-3 md:p-4">
-                      <div className="flex justify-center gap-2 items-center min-w-[120px]">
+                      <div className="flex justify-center gap-2 items-center min-w-30">
                         <button
                           onClick={() => setMostrarActualizar(carta)}
                           className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold"
                         >
                           Editar
                         </button>
-                        <EliminarCarta id={carta.id} obtenerCartas={obtenerCartas} />
+                        <EliminarCarta
+                          id={carta.id}
+                          obtenerCartas={obtenerCartas}
+                        />
                       </div>
                     </td>
                   </tr>

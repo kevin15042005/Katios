@@ -17,7 +17,6 @@ export default function KatiosToGo() {
 
       const cartasData = res.data || [];
       
-      // El backend ya nos entrega el arreglo 'pages' limpio con los PNGs de este punto
       setCartas(cartasData);
     } catch (err) {
       console.log("Error al obtener cartas:", err);
@@ -47,11 +46,11 @@ export default function KatiosToGo() {
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full mt">
           <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
-            Katios To Go
+            Funcionarios
           </h1>
           <div className="flex flex-col gap-10">
             <span className="text-2xl md:text-4xl m-2">
-              Nos encontramos en la zona de Aviaca Nacional
+                Los restuarante para funcionarios se encuentran en Hall Internacional y Hall Publico
             </span>
             <span className="text-[16px] md:text-2xl w-85 md:w-full">
               Revisa nuestro menu y sorprendete con nuestros platos

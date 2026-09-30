@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
-import Parilla from "@/assets/ToGo/KatiosToGo.webp";
+import ImagenPrincipal from "@/assets/Inter/KatiosInter.webp";
 
 export default function KatiosToGo() {
   const [cartas, setCartas] = useState([]);
@@ -39,19 +39,18 @@ export default function KatiosToGo() {
           "
         >
           <img
-            src={Parilla}
+            src={ImagenPrincipal}
             alt=""
-            className="object-cover  opacity-40 w-full h-150 "
-          />
+className="w-full h-150 object-cover object-center opacity-40"          />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full mt">
           <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
-            Katios To Go
+            Katios Internacional
           </h1>
           <div className="flex flex-col gap-10">
             <span className="text-2xl md:text-4xl m-2">
-              Nos encontramos en la zona de Aviaca Nacional
+              Nos encontramos en la plazoleta de Comidas
             </span>
             <span className="text-[16px] md:text-2xl w-85 md:w-full">
               Revisa nuestro menu y sorprendete con nuestros platos

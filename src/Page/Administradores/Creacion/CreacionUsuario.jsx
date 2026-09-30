@@ -53,28 +53,28 @@ export default function CreacionUsuario({ creaUsuarios, cerrarPopUp }) {
         >
           <input
             type="text"
-            placeholder="Nombre"
+            placeholder="NOMBRE"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             className="text-center border-2 rounded-2xl p-2 mb-2"
           />
           <input
             type="text"
-            placeholder="Pin"
+            placeholder="PIN"
             value={pin}
             onChange={(e) => setPin(e.target.value)}
             className="text-center border-2 rounded-2xl p-2 mb-2"
           />
           <input
             type="text"
-            placeholder="Contrasena"
+            placeholder="CONTRASEÑA"
             value={contrasena}
             onChange={(e) => setContrasena(e.target.value)}
             className="text-center border-2 rounded-2xl p-2 mb-2"
           />
           <input
             type="text"
-            placeholder="Id Admin"
+            placeholder="ID ADMIN"
             value={es_admin}
             onChange={(e) => setEs_admin(e.target.value)}
             className="text-center border-2 rounded-2xl p-2 mb-2"
@@ -85,7 +85,7 @@ export default function CreacionUsuario({ creaUsuarios, cerrarPopUp }) {
             className="bg-amber-500 py-4 px-6 rounded-2xl mt-4 hover:bg-green-400 transition-all duration-300"
             onClick={crearUsuario}
           >
-            Crear Usuario
+            CREAR USUSARIO{" "}
           </button>
         </form>
       </div>
