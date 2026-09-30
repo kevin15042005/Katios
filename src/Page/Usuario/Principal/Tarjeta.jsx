@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Tarjeta.css"; 
 
-export default function Tarjeta({ info, direccion = "left" }) {
+export default function Tarjeta({ info }) { // Ya no es estrictamente necesario recibir "direccion" si quitamos el movimiento lateral
   const [imagenActual, setImagenActual] = useState(0);
 
   useEffect(() => {
@@ -29,17 +29,15 @@ export default function Tarjeta({ info, direccion = "left" }) {
     return null;
   }
 
-  const initialX = direccion === "left" ? -100 : 100;
-
   return (
     <motion.div
-      initial={{ opacity: 0, x: initialX }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 40 }} // Cambiamos de x a y para evitar el desborde horizontal de la página
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{
         type: "spring",
-        stiffness: 20,
-        damping: 20,
+        stiffness: 40,
+        damping: 25,
         duration: 0.8,
       }}
       className="flex flex-col justify-center text-center m-4 overflow-hidden rounded-2xl shadow-lg"
