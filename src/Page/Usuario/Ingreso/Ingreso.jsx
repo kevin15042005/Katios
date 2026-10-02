@@ -12,11 +12,11 @@ export default function Ingreso() {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+const handleLogin = async (e) => {
     if (e) e.preventDefault();
 
     if (!nombre || !contrasena) {
-      alert("Ingreso los campos necesarios");
+      alert("Ingresa los campos necesarios");
       return;
     }
 
@@ -26,17 +26,17 @@ export default function Ingreso() {
         { nombre, contrasena }
       );
 
-      console.log(res.data.usuario);
-      localStorage.setItem("rol", res.data.usuario.es_admin);
-      alert(`Bienvenido usuario ${res.data.usuario.nombre_usuario}`);
-
+      localStorage.setItem("token", res.data.token);
+      
       const esAdmin = Number(res.data.usuario.es_admin);
       localStorage.setItem("rol", esAdmin);
+
+      alert(`¡Bienvenido usuario ${res.data.usuario.nombre}!`);
+
       if (esAdmin === 1) {
         window.dispatchEvent(new Event("storage"));
         navigate("/admin/tablaUsuario");
       } else {
-        localStorage.removeItem("rol");
         window.dispatchEvent(new Event("storage"));
         navigate("/");
       }
