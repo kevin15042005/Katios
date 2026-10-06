@@ -123,8 +123,7 @@ export default function KatiosToGo() {
       )}
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"
-          style={{
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4075600704673!2d-74.14492948873956!3d4.699043791650742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses!2sco!4v1791306437691!5m2!1ses!2sco"          style={{
             width: "90%",
             margin: "0",
             maxWidth: "800px",

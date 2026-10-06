@@ -17,7 +17,6 @@ export default function KatiosToGo() {
 
       const cartasData = res.data || [];
       
-      // El backend ya nos entrega el arreglo 'pages' limpio con los PNGs de este punto
       setCartas(cartasData);
     } catch (err) {
       console.log("Error al obtener cartas:", err);
@@ -122,8 +121,7 @@ className="w-full h-150 object-cover object-center opacity-40"          />
       )}
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4023740062457!2d-74.14474918920497!3d4.699952795255342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9da3c52d1941%3A0xe796d8feaf38d008!2sKat%C3%ADos%20Aeropuerto!5e0!3m2!1ses-419!2sco!4v1780321079068!5m2!1ses-419!2sco"
-          style={{
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.101530769815!2d-74.14344363977322!3d4.699295682343834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9cb735e20acf%3A0xd03549d486220862!2zS2F0aW9zLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1791306762668!5m2!1ses!2sco"          style={{
             width: "90%",
             margin: "0",
             maxWidth: "800px",
