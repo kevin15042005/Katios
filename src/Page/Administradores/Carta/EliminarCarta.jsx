@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "@/api";
 
 export default function EliminarCarta({ id, obtenerCartas }) {
 
@@ -7,8 +7,8 @@ export default function EliminarCarta({ id, obtenerCartas }) {
     if (!confirmar) return;
 
     try {
-      const res = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/cartas/eliminar_Carta/${id}`
+      const res = await api.delete(
+        `/cartas/eliminar_Carta/${id}`
       );
 
       console.log("Eliminado:", res.data);

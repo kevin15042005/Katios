@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "@/api";
 
 export default function EliminarUsuario({
   idUsuario,
@@ -14,8 +14,8 @@ export default function EliminarUsuario({
     if (!confirmar) return;
 
     try {
-      await axios.delete(
-        `${import.meta.env.VITE_API_URL}/usuario/eliminar_usuario/${idUsuario}`,
+      await api.delete(
+        `/usuario/eliminar_usuario/${idUsuario}`,
       );
       alert("Usuario eliminado correctamente");
       await eliminarUsu();

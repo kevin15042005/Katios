@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "@/api";
 
 import CrearCarta from "./CreacionCarta";
 import ActualizarCarta from "./ActualizacionCarta";
@@ -16,8 +16,8 @@ export default function Cartas() {
       setCargando(true);
       setMostrarActualizar(false);
 
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/cartas/obtener_Cartas`,
+      const res = await api.get(
+        `/cartas/obtener_Cartas`,
       );
 
       setCartas(res.data);

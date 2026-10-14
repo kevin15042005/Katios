@@ -1,5 +1,5 @@
 import React, { act, useState } from "react";
-import axios from "axios";
+import api from "@/api";
 export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
   const [nombre, setNombre] = useState("");
   const [pin, setPin] = useState("");
@@ -12,8 +12,8 @@ export default function ActualizacionUsuario({ actUsuarios, cerrarPopUp }) {
     }
 
     try {
-      await axios.put(
-        `${import.meta.env.VITE_API_URL}/usuario/actualizar_usuario`,
+      await api.put(
+        `/usuario/actualizar_usuario`,
         {
           nombre,
           pin: Number(pin),

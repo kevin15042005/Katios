@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "@/api";
 import EliminarUsuario from "./EliminarUsuario";
 import CreacionUsuario from "./CreacionUsuario";
 import ActualizacionUsuario from "./ActualizacionUsuario";
@@ -17,8 +17,8 @@ export default function Creacion() {
 
   const obtenerUsuarios = async () => {
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/usuario/obtener_usuario`,
+      const res = await api.get(
+        `/usuario/obtener_usuario`,
       );
 
       setObtenerUsuario(res.data);

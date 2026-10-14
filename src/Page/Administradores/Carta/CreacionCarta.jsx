@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "@/api";
 
 export default function CrearCarta({ obtenerCartas }) {
   const [punto_id, setPuntoId] = useState("");
@@ -18,8 +18,8 @@ export default function CrearCarta({ obtenerCartas }) {
       formData.append("punto_id", punto_id);
       formData.append("imagen", pdf);
 
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/cartas/crear_cartas`,
+      await api.post(
+        `/cartas/crear_cartas`,
         formData,
         {
           headers: {

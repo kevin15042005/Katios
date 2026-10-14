@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "@/api";
 export default function CreacionUsuario({ creaUsuarios, cerrarPopUp }) {
   const [nombre, setNombre] = useState("");
   const [pin, setPin] = useState("");
@@ -13,8 +13,8 @@ export default function CreacionUsuario({ creaUsuarios, cerrarPopUp }) {
       return;
     }
     try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/usuario/crear_usuario`,
+      await api.post(
+        `/usuario/crear_usuario`,
         {
           nombre,
           pin: Number(pin),

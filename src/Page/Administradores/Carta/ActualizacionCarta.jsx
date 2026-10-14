@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "@/api";
 import React, { useState } from "react";
 
 export default function ActualizacionCarta({
@@ -24,8 +24,8 @@ export default function ActualizacionCarta({
         formData.append("pdf", pdf);
       }
 
-      await axios.put(
-        `${import.meta.env.VITE_API_URL}/cartas/actualizar_Cartas`,
+      await api.put(
+        `/cartas/actualizar_Cartas`,
         formData,
         {
           headers: {

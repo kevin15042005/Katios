@@ -16,6 +16,7 @@ export default function NavbarUser() {
   ];
 
   const handleSalir = () => {
+    localStorage.removeItem("token");
     localStorage.removeItem("rol");
     window.dispatchEvent(new Event("storage"));
     navigate("/");
