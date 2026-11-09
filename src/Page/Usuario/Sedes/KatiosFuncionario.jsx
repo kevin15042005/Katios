@@ -45,7 +45,7 @@ export default function KatiosToGo() {
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full mt">
-          <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
+          <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue text-[#e2a523]">
             Funcionarios
           </h1>
           <div className="flex flex-col gap-10">

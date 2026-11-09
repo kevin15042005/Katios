@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../assets/Logo.png";
 import SubMenus from "./SubMenus";
-import LogoIngreso from "../../assets/Ingreso.png";
+import { CircleUserRound } from "../../Components/Animacion/icons/circle-user-round";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,11 +85,14 @@ const Navbar = () => {
           <div className="flex items-center justify-center">
             <ul className="hidden md:flex flex-row items-center space-x-6 lg:space-x-8 ml-auto">
               {navLinks.map((link) => (
-                <li className="border-2 py-1.5 px-3 lg:py-2 lg:px-4 rounded-2xl" key={link.name}>
+                <li
+                  className="border-2 py-1.5 px-3 lg:py-2 lg:px-4 rounded-2xl"
+                  key={link.name}
+                >
                   {link.name === "Sedes" ? (
-                    <SubMenus 
-                      closeNavbar={() => setIsMenuOpen(false)} 
-                      onNavigate={handleNavigation} 
+                    <SubMenus
+                      closeNavbar={() => setIsMenuOpen(false)}
+                      onNavigate={handleNavigation}
                     />
                   ) : (
                     <button
@@ -106,7 +109,7 @@ const Navbar = () => {
                   onClick={() => handleNavigation("/Ingreso")}
                   className="cursor-pointer bg-transparent border-none p-0 flex items-center"
                 >
-                  <img className="h-10 w-12 lg:h-12 lg:w-14" src={LogoIngreso} alt="Ingreso" />
+                <CircleUserRound animateOnHover />
                 </button>
               </li>
             </ul>
@@ -131,11 +134,14 @@ const Navbar = () => {
         >
           <ul className="flex flex-col items-center py-3 gap-y-1">
             {navLinks.map((link) => (
-              <li className="py-1 px-4 rounded-xl w-full text-center" key={link.name}>
+              <li
+                className="py-1 px-4 rounded-xl w-full text-center"
+                key={link.name}
+              >
                 {link.name === "Sedes" ? (
-                  <SubMenus 
-                    closeNavbar={() => setIsMenuOpen(false)} 
-                    onNavigate={handleNavigation} 
+                  <SubMenus
+                    closeNavbar={() => setIsMenuOpen(false)}
+                    onNavigate={handleNavigation}
                   />
                 ) : (
                   <button
@@ -153,7 +159,7 @@ const Navbar = () => {
                 onClick={() => handleNavigation("/Ingreso")}
                 className="cursor-pointer bg-transparent border-none p-0 flex items-center justify-center"
               >
-                <img className="h-8 w-10" src={LogoIngreso} alt="Ingreso" />
+                <CircleUserRound animateOnHover />
               </button>
             </li>
           </ul>

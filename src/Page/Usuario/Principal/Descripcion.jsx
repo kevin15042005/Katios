@@ -1,4 +1,8 @@
 import DescripcionLogo from "../../../assets/LogoSlogan.png";
+import TextoEscrito from "../../../Components/Animacion/TextoEscrito";
+
+const textoRestante =
+  "omos una familia que inspirada en la esencia de lo nuestro, ofrece la mejor Parrilla y Comida Típica Colombiana, con nuestra pasión, sazón y sabores naturales evocamos en nuestros clientes momentos familiares.";
 
 export default function Descripcion() {
   return (
@@ -15,10 +19,12 @@ export default function Descripcion() {
           {/* Contenedor del Texto */}
           <div className="w-80 md:w-110 text-[16px] md:text-[22px] m-auto font-bold font-stretch-expanded">
             <p className="text-[#ad8433] font-roboto-regular leading-relaxed">
-              <strong className="text-6xl text-amber-500 font-bebas-neue">S</strong>omos una familia que inspirada en la esencia de lo nuestro,
-              ofrece la mejor Parrilla y Comida Típica Colombiana, con nuestra
-              pasión, sazón y sabores naturales evocamos en nuestros clientes
-              momentos familiares.
+              <TextoEscrito
+                inicial="S"
+                claseInicial="text-6xl text-amber-500 font-bebas-neue"
+                texto={textoRestante}
+                velocidad={20}
+              />
             </p>
           </div>
 

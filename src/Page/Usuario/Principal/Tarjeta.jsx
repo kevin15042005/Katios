@@ -29,7 +29,6 @@ export default function Tarjeta({ info, index }) {
     return null;
   }
 
-  // En PC (md:) alterna izquierda (-100) y derecha (100) según el índice, en móvil siempre izquierda (-100)
   const initialX = index % 2 === 0 ? -100 : 100;
 
   return (
@@ -53,7 +52,7 @@ export default function Tarjeta({ info, index }) {
         />
       </div>
 
-      <div className="bg-amber-800 flex flex-col gap-4 p-4 items-center">
+      <div className="bg-[#7d242a] flex flex-col gap-4 p-4 items-center">
         <h3 className="font-bold font-bebas-neue text-4xl text-white">
           {info.name}
         </h3>
@@ -76,12 +75,20 @@ export default function Tarjeta({ info, index }) {
                     viewBox="0 0 180 60"
                     className="absolute inset-0 w-full h-full pointer-events-none"
                   >
-                    <polyline
-                      points="179,1 179,59 1,59 1,1 179,1"
+                    <rect
+                      x="1"
+                      y="1"
+                      width="178"
+                      height="58"
+                      rx="20"
                       className="bg-line fill-none stroke-white/30 stroke-2"
                     />
-                    <polyline
-                      points="179,1 179,59 1,59 1,1 179,1"
+                    <rect
+                      x="1"
+                      y="1"
+                      width="178"
+                      height="58"
+                      rx="20"
                       className="hl-line fill-none stroke-white stroke-2"
                     />
                   </svg>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import TextoEscrito from "../../../Components/Animacion/TextoEscrito";
 
 export default function Nosotros() {
   const fadeInVariant = (direction) => ({
@@ -38,7 +39,7 @@ export default function Nosotros() {
       <div className="max-w-3xl md:max-w-5xl mx-auto w-full  ">
         {/* Título Principal: Centrado y con estilo */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 font-bebas-neue ">
+          <h1 className="text-4xl md:text-7xl font-bold text-[#e2a523] mb-4 font-bebas-neue  ">
             Nosotros
           </h1>
           <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
@@ -57,7 +58,8 @@ export default function Nosotros() {
           </h2>
 
           <p className="text-[16px] md:text-[22px]  text-[#3d2b1f] font leading-relaxed font-roboto-regular ">
-            Nacimos en junio de 1995 bajo el nombre de Bar Escocés e Inversiones
+            <TextoEscrito
+              texto="  Nacimos en junio de 1995 bajo el nombre de Bar Escocés e Inversiones
             S.A.S., consolidando desde nuestros inicios una sólida trayectoria
             en el sector comercial de alimentos, bebidas y entretenimiento. Con
             el paso de los años, evolucionamos para convertirnos en un referente
@@ -67,7 +69,10 @@ export default function Nosotros() {
             con la misma pasión y compromiso de calidad con la que empezamos
             hace más de tres décadas, conectando nuestra tradición con la
             dinamismo del mundo moderno para ofrecer siempre la mejor
-            experiencia a nuestros clientes y viajeros. .
+            experiencia a nuestros clientes y viajeros. ."
+              velocidad={15}
+              claseCursor="text-6xl text-amber-500 font-bebas-neue"
+            />
           </p>
         </motion.div>
         <motion.div
@@ -81,13 +86,17 @@ export default function Nosotros() {
             Mision
           </h1>
           <p className="font-roboto-regular">
-            Brindar experiencias excepcionales de hospitalidad, alimentos y
+            <TextoEscrito
+              texto="Brindar experiencias excepcionales de hospitalidad, alimentos y
             bebidas a viajeros y clientes locales, operando con los más altos
             estándares de calidad, eficiencia logística e inocuidad. Nos
             comprometemos a mantener viva nuestra tradición e historia
             comercial, adaptándonos al dinamismo de plataformas internacionales
             como el Aeropuerto El Dorado, para ofrecer un servicio cálido, ágil
-            y confiable que supere las expectativas de un público global.
+            y confiable que supere las expectativas de un público global."
+              velocidad={15}
+              claseCursor="text-6xl text-amber-500 font-bebas-neue"
+            />
           </p>
         </motion.div>
         <motion.div
@@ -97,19 +106,23 @@ export default function Nosotros() {
           viewport={{ once: true, margin: "-100px" }}
           className="flex flex-col gap-6 bg-[#F9F4DB]/80 p-7 md:p-14 rounded-4xl my-10"
         >
-            <h1 className=" text-3xl font-extrabold text-[#5c4a33] border-l-4 border-amber-500 pl-4 font-bebas-neue">
-              Vision
-            </h1>
-            <p  className="font-roboto-regular">
-              Para el año 2030, consolidarnos como uno de los grupos operadores
-              e inversionistas más sólidos y reconocidos en el sector de la
-              restauración y comercio aeroportuario en Colombia. Buscamos
-              expandir nuestra presencia en terminales aéreas y centros
-              logísticos clave del país, siendo identificados por nuestra
-              excelencia operativa, innovación en el servicio y por ser un
-              aliado estratégico confiable para el desarrollo comercial de las
-              grandes infraestructuras de transporte.
-            </p>
+          <h1 className=" text-3xl font-extrabold text-[#5c4a33] border-l-4 border-amber-500 pl-4 font-bebas-neue">
+            Vision
+          </h1>
+          <p className="font-roboto-regular">
+            <TextoEscrito
+              texto="Para el año 2030, consolidarnos como uno de los grupos operadores e
+            inversionistas más sólidos y reconocidos en el sector de la
+            restauración y comercio aeroportuario en Colombia. Buscamos expandir
+            nuestra presencia en terminales aéreas y centros logísticos clave
+            del país, siendo identificados por nuestra excelencia operativa,
+            innovación en el servicio y por ser un aliado estratégico confiable
+            para el desarrollo comercial de las grandes infraestructuras de
+            transporte."
+              velocidad={15}
+              claseCursor="text-6xl text-amber-500 font-bebas-neue"
+            />
+          </p>
         </motion.div>
 
         <div className="flex flex-col gap-8 mt-8">

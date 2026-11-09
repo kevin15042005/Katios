@@ -16,7 +16,7 @@ export default function KatiosToGo() {
       );
 
       const cartasData = res.data || [];
-      
+
       setCartas(cartasData);
     } catch (err) {
       console.log("Error al obtener cartas:", err);
@@ -40,11 +40,12 @@ export default function KatiosToGo() {
           <img
             src={ImagenPrincipal}
             alt=""
-className="w-full h-150 object-cover object-center opacity-40"          />
+            className="w-full h-150 object-cover object-center opacity-40"
+          />
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-80% to-[#360707]"></div>
         </div>
         <div className="relative z-10  pt-50 text-center text-white w-full mt">
-          <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue">
+          <h1 className="text-4xl md:text-7xl font-extrabold mb-2 font-bebas-neue text-[#e2a523]">
             Katios Internacional
           </h1>
           <div className="flex flex-col gap-10">
@@ -121,7 +122,8 @@ className="w-full h-150 object-cover object-center opacity-40"          />
       )}
       <div className="col-span-1 md:col-span-2 flex justify-center my-10">
         <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.101530769815!2d-74.14344363977322!3d4.699295682343834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9cb735e20acf%3A0xd03549d486220862!2zS2F0aW9zLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1791306762668!5m2!1ses!2sco"          style={{
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.101530769815!2d-74.14344363977322!3d4.699295682343834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9cb735e20acf%3A0xd03549d486220862!2zS2F0aW9zLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1791306762668!5m2!1ses!2sco"
+          style={{
             width: "90%",
             margin: "0",
             maxWidth: "800px",

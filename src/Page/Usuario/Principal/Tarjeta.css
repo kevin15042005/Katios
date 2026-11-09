@@ -44,18 +44,19 @@
   top: 0;
   fill: none;
   stroke: #fff;
-  stroke-dasharray: 150 480;
+  stroke-dasharray: 150 440;
   stroke-dashoffset: 150;
+  stroke-linecap: round;
   transition: 1s ease-in-out;
 }
 
 .btn3:hover {
   transition: 1s ease-in-out;
-  background: #dcd92b;
+  background: #dc572b;
 }
 
 .btn3:hover .svg-1 svg {
-  stroke-dashoffset: -480;
+  stroke-dashoffset: -440;
 }
 
 .btn3 span {
